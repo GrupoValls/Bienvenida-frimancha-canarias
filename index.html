@@ -279,41 +279,51 @@
 
 
 
-    <!-- FIRMA DIGITAL -->
+   <!-- FIRMA DIGITAL -->
 
-    <div id="firmaSection" style="display:none;">
+<div id="firmaSection" style="display:none;">
 
-        <h2>Firma digital</h2>
+    <h2>Firma digital</h2>
 
-        <p>
-            Por favor, firme en el siguiente recuadro.
-        </p>
+    <p>
+        Si está utilizando un teléfono móvil, gire el dispositivo en posición horizontal antes de firmar.
+    </p>
+
+    <canvas id="signature-pad"></canvas>
+
+    <br><br>
+
+    <button id="btnBorrarFirma">
+        Borrar firma
+    </button>
+
+    <br><br>
+
+    <button id="btnAceptarFirma">
+        ACEPTAR FIRMA
+    </button>
+
+</div>
 
 
-        <canvas id="signature-pad"></canvas>
 
+<!-- PANTALLA FINAL -->
+
+<div id="pantallaFinal" style="display:none;">
+
+    <img src="logo.png" class="logo">
+
+    <h1>¡GRACIAS!</h1>
+
+    <p class="descripcion">
+
+        Ha completado correctamente su proceso de acogida.
 
         <br><br>
 
+        Bienvenido al equipo de Frimancha Canarias.
 
-        <button id="btnBorrarFirma">
-
-            Borrar firma
-
-        </button>
-
-        <br><br>
-
-
-        <button id="btnFinalizarFirma">
-
-            Finalizar formación
-
-        </button>
-
-
-    </div>
-
+    </p>
 
 </div>
 
