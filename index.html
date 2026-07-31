@@ -18,13 +18,25 @@
         <h1>Bienvenido a Frimancha Canarias</h1>
 
         <p class="descripcion">
-            Por favor, rellene todos los campos obligatorios, visualice íntegramente
-            el vídeo de bienvenida y complete correctamente el test final de 5
-            preguntas para finalizar el proceso de acogida.
+
+            Por favor:
+
+            <br><br>
+
+            • Rellene todos los campos obligatorios.
+
+            <br>
+
+            • Visualice íntegramente el vídeo de bienvenida.
+
+            <br>
+
+            • Complete correctamente el test final de 5 preguntas.
+
         </p>
 
 
-        <!-- REGISTRO -->
+        <!-- FORMULARIO DE REGISTRO -->
 
         <div id="registro">
 
@@ -34,17 +46,7 @@
 
             <input type="text" id="dni" placeholder="DNI / NIE">
 
-
-            <!-- FECHA DE NACIMIENTO -->
-
-            <div class="campoIntegrado">
-
-                <span>Fecha de nacimiento</span>
-
-                <input type="date" id="fechaNacimiento">
-
-            </div>
-
+            <input type="date" id="fechaNacimiento">
 
             <input type="tel" id="telefono" placeholder="Teléfono móvil">
 
@@ -55,81 +57,74 @@
 
             <!-- TALLA DE CALZADO -->
 
-            <div class="campoIntegrado">
+            <select id="tallaCalzado">
 
-                <span>Talla de calzado</span>
+                <option value="">Talla de calzado</option>
 
-                <select id="tallaCalzado">
-                    <option value=""></option>
-                    <option>35</option>
-                    <option>36</option>
-                    <option>37</option>
-                    <option>38</option>
-                    <option>39</option>
-                    <option>40</option>
-                    <option>41</option>
-                    <option>42</option>
-                    <option>43</option>
-                    <option>44</option>
-                    <option>45</option>
-                    <option>46</option>
-                    <option>47</option>
-                    <option>48</option>
-                </select>
+                <option>35</option>
+                <option>36</option>
+                <option>37</option>
+                <option>38</option>
+                <option>39</option>
+                <option>40</option>
+                <option>41</option>
+                <option>42</option>
+                <option>43</option>
+                <option>44</option>
+                <option>45</option>
+                <option>46</option>
+                <option>47</option>
+                <option>48</option>
 
-            </div>
+            </select>
 
 
             <!-- TALLA DE PANTALÓN -->
 
-            <div class="campoIntegrado">
+            <select id="tallaPantalon">
 
-                <span>Talla de pantalón</span>
+                <option value="">Talla de pantalón</option>
 
-                <select id="tallaPantalon">
-                    <option value=""></option>
-                    <option>XS</option>
-                    <option>S</option>
-                    <option>M</option>
-                    <option>L</option>
-                    <option>XL</option>
-                    <option>XXL</option>
-                    <option>XXXL</option>
-                    <option>4XL</option>
-                </select>
+                <option>XS</option>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+                <option>XXL</option>
+                <option>XXXL</option>
+                <option>4XL</option>
 
-            </div>
+            </select>
 
 
             <!-- TALLA DE CAMISA -->
 
-            <div class="campoIntegrado">
+            <select id="tallaCamisa">
 
-                <span>Talla de camisa</span>
+                <option value="">Talla de camisa</option>
 
-                <select id="tallaCamisa">
-                    <option value=""></option>
-                    <option>XS</option>
-                    <option>S</option>
-                    <option>M</option>
-                    <option>L</option>
-                    <option>XL</option>
-                    <option>XXL</option>
-                    <option>XXXL</option>
-                    <option>4XL</option>
-                </select>
+                <option>XS</option>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+                <option>XXL</option>
+                <option>XXXL</option>
+                <option>4XL</option>
 
-            </div>
+            </select>
 
 
             <br>
 
 
-            <!-- RGPD -->
+            <!-- AVISO RGPD -->
 
-            <p style="text-align:justify; font-size:14px;">
+            <p style="text-align: justify; font-size:14px;">
 
-                <strong>Aviso de Protección de Datos:</strong><br><br>
+                <strong>Aviso de Protección de Datos:</strong>
+
+                <br><br>
 
                 Los datos personales facilitados serán tratados por las empresas integrantes del Grupo Valls Companys, de conformidad con el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD), con la finalidad de gestionar los procesos de contratación, acogida y formación inicial del personal. Los datos no serán utilizados para fines distintos de los aquí indicados.
 
@@ -137,16 +132,20 @@
 
 
             <label>
-                <input type="checkbox" id="aceptaRGPD">
-                He leído y acepto el tratamiento de mis datos personales.
-            </label>
 
+                <input type="checkbox" id="aceptaRGPD">
+
+                He leído y acepto el tratamiento de mis datos personales.
+
+            </label>
 
             <br><br>
 
 
             <button id="btnIniciar" onclick="iniciarVideo()" disabled>
+
                 Comenzar formación
+
             </button>
 
         </div>
@@ -159,8 +158,11 @@
             <h2>Vídeo de bienvenida</h2>
 
             <video id="video" controls width="100%">
+
                 <source src="video.mp4" type="video/mp4">
+
                 Tu navegador no soporta vídeo HTML5.
+
             </video>
 
 
@@ -168,8 +170,11 @@
 
 
             <label>
+
                 <input type="checkbox" id="aceptaVideo" disabled>
+
                 Declaro haber visualizado íntegramente el vídeo de formación.
+
             </label>
 
 
@@ -177,7 +182,9 @@
 
 
             <button id="btnTest" onclick="mostrarTest()" disabled>
+
                 Realizar test
+
             </button>
 
         </div>
@@ -189,6 +196,7 @@
 
             <h2>Test final</h2>
 
+
             <p>1. ¿Cuál es el objetivo principal de esta formación?</p>
 
             <input type="radio" name="p1">
@@ -196,6 +204,7 @@
 
             <input type="radio" name="p1">
             Saltarse los procedimientos<br><br>
+
 
 
             <p>2. ¿Debe cumplirse la normativa de seguridad?</p>
@@ -207,6 +216,7 @@
             No<br><br>
 
 
+
             <p>3. ¿Es obligatorio visualizar el vídeo completo?</p>
 
             <input type="radio" name="p3">
@@ -216,6 +226,7 @@
             No<br><br>
 
 
+
             <p>4. ¿Qué debe hacerse ante una incidencia?</p>
 
             <input type="radio" name="p4">
@@ -223,6 +234,7 @@
 
             <input type="radio" name="p4">
             Ignorarla<br><br>
+
 
 
             <p>5. ¿Quién debe cumplir las normas internas?</p>
@@ -235,7 +247,9 @@
 
 
             <button onclick="finalizar()">
+
                 Enviar test
+
             </button>
 
         </div>
