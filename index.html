@@ -2,14 +2,10 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Bienvenida Frimancha Canarias</title>
-
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
@@ -21,25 +17,16 @@
     <h1>Bienvenido a Frimancha Canarias</h1>
 
     <p class="descripcion">
-
         Por favor:
-
         <br><br>
-
         • Rellene todos los campos obligatorios.
-
         <br>
-
         • Visualice íntegramente el vídeo de bienvenida.
-
         <br>
-
         • Complete correctamente el test final de 5 preguntas.
-
     </p>
 
     <!-- FORMULARIO -->
-
     <div id="registro">
 
         <input type="text" id="nombre" placeholder="Nombre">
@@ -65,9 +52,7 @@
                placeholder="Dirección personal">
 
         <select id="tallaCalzado">
-
             <option value="">Talla de calzado</option>
-
             <option>35</option>
             <option>36</option>
             <option>37</option>
@@ -82,13 +67,10 @@
             <option>46</option>
             <option>47</option>
             <option>48</option>
-
         </select>
 
         <select id="tallaPantalon">
-
             <option value="">Talla de pantalón</option>
-
             <option>XS</option>
             <option>S</option>
             <option>M</option>
@@ -97,13 +79,10 @@
             <option>XXL</option>
             <option>XXXL</option>
             <option>4XL</option>
-
         </select>
 
         <select id="tallaCamisa">
-
             <option value="">Talla de camisa</option>
-
             <option>XS</option>
             <option>S</option>
             <option>M</option>
@@ -112,81 +91,61 @@
             <option>XXL</option>
             <option>XXXL</option>
             <option>4XL</option>
-
         </select>
 
         <br>
 
         <p style="text-align:justify;font-size:14px;">
-
             <strong>Aviso de Protección de Datos:</strong>
-
             <br><br>
-
             Los datos personales facilitados serán tratados por las empresas integrantes del Grupo Valls Companys, de conformidad con el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD), con la finalidad de gestionar los procesos de contratación, acogida y formación inicial del personal.
-
         </p>
 
         <label>
-
             <input type="checkbox" id="aceptaRGPD">
-
             He leído y acepto el tratamiento de mis datos personales.
-
         </label>
 
         <br><br>
 
-        <button id="btnIniciar"
-                onclick="iniciarVideo()"
-                disabled>
-
+        <button id="btnIniciar" onclick="iniciarVideo()" disabled>
             Comenzar formación
-
         </button>
 
     </div>
 
     <!-- VIDEO -->
-
     <div id="videoSection">
 
         <h2>Vídeo de bienvenida</h2>
 
         <video id="video" controls width="100%">
-
-            video.mp4="video/mp4">
-
+            video.mp4
             Tu navegador no soporta vídeo HTML5.
-
         </video>
 
         <br><br>
 
         <label>
-
             <input type="checkbox"
                    id="aceptaVideo"
                    disabled>
 
             Declaro haber visualizado íntegramente el vídeo de formación.
-
         </label>
 
         <br><br>
 
-        <button id="btnTest"
-                onclick="mostrarTest()"
-                disabled>
-
+        <button
+            id="btnTest"
+            onclick="mostrarTest()"
+            disabled>
             Realizar test
-
         </button>
 
     </div>
 
     <!-- TEST -->
-
     <div id="testSection" style="display:none;">
 
         <h2>Test final</h2>
@@ -259,8 +218,7 @@
 
     </div>
 
-    <!-- FIRMA DIGITAL -->
-
+    <!-- FIRMA -->
     <div id="firmaSection" style="display:none;">
 
         <h2>Firma digital</h2>
@@ -286,34 +244,27 @@
 </div>
 
 <!-- PANTALLA FINAL -->
-
 <div id="pantallaFinal" style="display:none;">
 
-    <img src="logo.png"
+    "
          alt="Logo Frimancha Canarias"
          class="logo">
 
     <h1>¡GRACIAS!</h1>
 
     <p class="descripcion">
-
         Ha completado correctamente el proceso de acogida.
-
         <br><br>
-
         Bienvenido al equipo de Frimancha Canarias.
-
     </p>
 
 </div>
 
-<!-- LIBRERÍA DE FIRMA -->
+<!-- SIGNATURE PAD -->
+.jsdelivr.net/npm/signature_pad@4.1.7/dist/signature_pad.umd.min.js"></script>
 
-@4.1.7/dist/signature_pad.umd.min.js"></script>
-
-<!-- SCRIPT PRINCIPAL -->
-
-<script src="script.js"></script>
+<!-- SCRIPT -->
+script.js"></script>
 
 </body>
 </html>
