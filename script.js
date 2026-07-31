@@ -328,6 +328,15 @@ function finalizar() {
 
 function inicializarFirma() {
 
+    const ratio = Math.max(window.devicePixelRatio || 1, 1);
+
+    const rect = canvas.getBoundingClientRect();
+
+    canvas.width = rect.width * ratio;
+    canvas.height = rect.height * ratio;
+
+    canvas.getContext("2d").scale(ratio, ratio);
+
     signaturePad = new SignaturePad(canvas);
 
 }
