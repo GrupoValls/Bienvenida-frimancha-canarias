@@ -328,11 +328,7 @@ function finalizar() {
 
 function inicializarFirma() {
 
-    if (!signaturePad) {
-
-        signaturePad = new SignaturePad(canvas);
-
-    }
+    signaturePad = new SignaturePad(canvas);
 
 }
 
