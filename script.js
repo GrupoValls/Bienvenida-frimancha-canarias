@@ -49,7 +49,7 @@ const pantallaFinal = document.getElementById("pantallaFinal");
 
 const canvas = document.getElementById("signature-pad");
 
-let signaturePad;
+let signaturePad = null;
 
 //---------------------------------------------
 // CONFIGURACIÓN INICIAL
@@ -69,136 +69,136 @@ aceptaVideo.disabled = true;
 // VALIDACIÓN FORMULARIO
 //---------------------------------------------
 
-function validarFormulario(){
+function validarFormulario() {
 
-    const completo=
-
-        nombre.value.trim()!="" &&
-        apellidos.value.trim()!="" &&
-        dni.value.trim()!="" &&
-        fechaNacimiento.value!="" &&
-        telefono.value.trim()!="" &&
-        email.value.trim()!="" &&
-        direccion.value.trim()!="" &&
-        tallaCalzado.value!="" &&
-        tallaPantalon.value!="" &&
-        tallaCamisa.value!="" &&
+    const completo =
+        nombre.value.trim() !== "" &&
+        apellidos.value.trim() !== "" &&
+        dni.value.trim() !== "" &&
+        fechaNacimiento.value.trim() !== "" &&
+        telefono.value.trim() !== "" &&
+        email.value.trim() !== "" &&
+        direccion.value.trim() !== "" &&
+        tallaCalzado.value !== "" &&
+        tallaPantalon.value !== "" &&
+        tallaCamisa.value !== "" &&
         aceptaRGPD.checked;
 
-    btnIniciar.disabled=!completo;
-
+    btnIniciar.disabled = !completo;
 }
 
 [
-nombre,
-apellidos,
-dni,
-fechaNacimiento,
-telefono,
-email,
-direccion
-].forEach(campo=>campo.addEventListener("input",validarFormulario));
-
-[
-tallaCalzado,
-tallaPantalon,
-tallaCamisa
-].forEach(campo=>campo.addEventListener("change",validarFormulario));
-
-aceptaRGPD.addEventListener("change",validarFormulario);
-
-//---------------------------------------------
-// INICIAR
-//---------------------------------------------
-
-function iniciarVideo(){
-
-    if(btnIniciar.disabled) return;
-
-    registro.style.display="none";
-
-    videoSection.style.display="block";
-
-    video.currentTime=0;
-
-    video.play();
-
-}
-
-//---------------------------------------------
-// CONTROL VIDEO
-//---------------------------------------------
-
-let tiempoMaximoVisto=0;
-let ultimaPosicionValida=0;
-let testActivado=false;
-
-video.addEventListener("timeupdate",()=>{
-
-    if(!video.seeking){
-
-        ultimaPosicionValida=video.currentTime;
-
-        if(video.currentTime>tiempoMaximoVisto){
-
-            tiempoMaximoVisto=video.currentTime;
-
-        }
-
-    }
-
-    if(
-
-        !testActivado &&
-        video.duration>0 &&
-        tiempoMaximoVisto>=video.duration-1
-
-    ){
-
-        testActivado=true;
-
-        aceptaVideo.disabled=false;
-
-        alert("Vídeo completado.\n\nYa puede realizar el test.");
-
-    }
-
+    nombre,
+    apellidos,
+    dni,
+    fechaNacimiento,
+    telefono,
+    email,
+    direccion
+].forEach(campo => {
+    campo.addEventListener("input", validarFormulario);
 });
 
-video.addEventListener("seeking",()=>{
+[
+    tallaCalzado,
+    tallaPantalon,
+    tallaCamisa
+].forEach(campo => {
+    campo.addEventListener("change", validarFormulario);
+});
 
-    if(video.currentTime>tiempoMaximoVisto+1){
+aceptaRGPD.addEventListener("change", validarFormulario);
+
+//---------------------------------------------
+// INICIAR VÍDEO
+//---------------------------------------------
+
+function iniciarVideo() {
+
+    if (btnIniciar.disabled) return;
+
+    registro.style.display = "none";
+
+    videoSection.style.display = "block";
+
+    video.currentTime = 0;
+
+    video.play();
+}
+
+//---------------------------------------------
+// CONTROL ANTIADELANTO
+//---------------------------------------------
+
+let tiempoMaximoVisto = 0;
+let ultimaPosicionValida = 0;
+let testActivado = false;
+
+video.addEventListener("timeupdate", () => {
+
+    if (!video.seeking) {
+
+        ultimaPosicionValida = video.currentTime;
+
+        if (video.currentTime > tiempoMaximoVisto) {
+            tiempoMaximoVisto = video.currentTime;
+        }
+    }
+
+    if (
+        !testActivado &&
+        video.duration > 0 &&
+        tiempoMaximoVisto >= video.duration - 1
+    ) {
+
+        testActivado = true;
+
+        aceptaVideo.disabled = false;
+
+        alert(
+            "Vídeo completado.\n\nYa puede realizar el test."
+        );
+    }
+});
+
+video.addEventListener("seeking", () => {
+
+    if (video.currentTime > tiempoMaximoVisto + 1) {
 
         alert("No puede adelantar el vídeo.");
 
-        video.currentTime=ultimaPosicionValida;
-
+        video.currentTime = ultimaPosicionValida;
     }
-
 });
 
-aceptaVideo.addEventListener("change",()=>{
+aceptaVideo.addEventListener("change", () => {
 
-    btnTest.disabled=!(aceptaVideo.checked && testActivado);
-
+    btnTest.disabled = !(
+        aceptaVideo.checked &&
+        testActivado
+    );
 });
 
 //---------------------------------------------
 // MOSTRAR TEST
 //---------------------------------------------
 
-function mostrarTest(){
+function mostrarTest() {
 
-    if(btnTest.disabled){
+    if (btnTest.disabled) {
 
-        alert("Debe completar el vídeo.");
+        alert(
+            "Debe completar el vídeo antes de realizar el test."
+        );
 
         return;
-
     }
 
-    testSection.style.display="block";
+    testSection.style.display = "block";
 
+    testSection.scrollIntoView({
+        behavior: "smooth"
+    });
 }
 
 //---------------------------------------------
@@ -213,168 +213,133 @@ function finalizar() {
     const p4 = document.querySelector('input[name="p4"]:checked');
     const p5 = document.querySelector('input[name="p5"]:checked');
 
-
     if (!p1 || !p2 || !p3 || !p4 || !p5) {
 
         alert("Debe responder las 5 preguntas.");
-        return;
 
+        return;
     }
 
-
     let errores = 0;
-
 
     // RESPUESTAS CORRECTAS
 
     if (p1 !== document.querySelectorAll('input[name="p1"]')[0]) errores++;
-    if (p2 !== document.querySelectorAll('input[name="p2"]')[1]) errores++;
+    if (p2 !== document.querySelectorAll('input[name="p2"]')[0]) errores++;
     if (p3 !== document.querySelectorAll('input[name="p3"]')[0]) errores++;
     if (p4 !== document.querySelectorAll('input[name="p4"]')[0]) errores++;
-    if (p5 !== document.querySelectorAll('input[name="p5"]')[1]) errores++;
-
-
-    // TEST NO SUPERADO
+    if (p5 !== document.querySelectorAll('input[name="p5"]')[0]) errores++;
 
     if (errores > 0) {
 
         alert(
             "Test no superado.\n\n" +
-            "Tiene " + errores + " pregunta(s) incorrecta(s).\n\n" +
+            "Tiene " + errores + " respuesta(s) incorrecta(s).\n\n" +
             "Debe volver a realizar el test."
         );
 
         document
             .querySelectorAll('input[type="radio"]')
-            .forEach(radio => radio.checked = false);
+            .forEach(radio => {
+                radio.checked = false;
+            });
 
         return;
-
     }
 
-
-    //---------------------------------------------
-    // TEST SUPERADO
-    //---------------------------------------------
-
     alert(
-
         "¡¡ENHORABUENA!!\n\n" +
-
-        "HA SUPERADO CORRECTAMENTE EL TEST FINAL.\n\n" +
-
-        "POR FAVOR, PROCEDA A REALIZAR SU FIRMA DIGITAL PARA FINALIZAR LA FORMACIÓN."
-
+        "Ha superado correctamente el test.\n\n" +
+        "Proceda a realizar su firma digital."
     );
 
-
-    // Mostramos la zona de firma
+    testSection.style.display = "none";
 
     firmaSection.style.display = "block";
 
+    setTimeout(() => {
 
-    // Inicializamos la firma
+        inicializarFirma();
 
-    inicializarFirma();
+        firmaSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
 
-
-    // Bajamos automáticamente hasta la firma
-
-    firmaSection.scrollIntoView({
-
-        behavior: "smooth"
-
-    });
-
+    }, 100);
 }
 
-
 //---------------------------------------------
-// INICIALIZAR FIRMA DIGITAL
+// INICIALIZAR FIRMA
 //---------------------------------------------
 
 function inicializarFirma() {
 
-    // Si ya existe una firma anterior la eliminamos
-    if (signaturePad) {
-        signaturePad.off();
+    if (!canvas) {
+
+        console.error(
+            "No se encontró el canvas de firma."
+        );
+
+        return;
     }
 
-    // Ajustamos el canvas al tamaño visible
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
+    const ratio =
+        Math.max(window.devicePixelRatio || 1, 1);
 
-    // Creamos la firma
-    signaturePad = new SignaturePad(canvas);
+    canvas.width =
+        canvas.offsetWidth * ratio;
 
+    canvas.height =
+        250 * ratio;
+
+    const ctx =
+        canvas.getContext("2d");
+
+    ctx.scale(ratio, ratio);
+
+    signaturePad = new SignaturePad(
+        canvas,
+        {
+            backgroundColor: "white",
+            penColor: "black"
+        }
+    );
 }
-
 
 //---------------------------------------------
 // BORRAR FIRMA
 //---------------------------------------------
 
-btnBorrarFirma.addEventListener("click", function () {
+btnBorrarFirma.addEventListener("click", () => {
 
     if (signaturePad) {
+
         signaturePad.clear();
     }
-
 });
-
 
 //---------------------------------------------
 // FINALIZAR FORMACIÓN
 //---------------------------------------------
 
-btnAceptarFirma.addEventListener("click", function () {
+btnAceptarFirma.addEventListener("click", () => {
 
     if (!signaturePad || signaturePad.isEmpty()) {
 
         alert(
-            "DEBE REALIZAR SU FIRMA DIGITAL PARA FINALIZAR LA FORMACIÓN."
+            "Debe realizar su firma digital para finalizar la formación."
         );
 
         return;
-
     }
 
-    document.body.innerHTML = `
+    document.querySelector(".container").style.display = "none";
 
-        <div style="
-            display:flex;
-            flex-direction:column;
-            justify-content:center;
-            align-items:center;
-            height:100vh;
-            text-align:center;
-            font-family:Arial;
-            padding:40px;
-            background:#f4f6f8;
-        ">
+    pantallaFinal.style.display = "flex";
 
-            <img src="logo.png"
-                 style="width:250px;margin-bottom:30px;">
-
-            <h1 style="
-                font-size:60px;
-                color:#f47c20;
-                margin-bottom:20px;
-            ">
-                ¡GRACIAS!
-            </h1>
-
-            <h2>
-                Formación completada correctamente.
-            </h2>
-
-            <p>
-                Gracias por completar el proceso de acogida de
-                Frimancha Canarias.
-            </p>
-
-        </div>
-
-    `;
-
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 });
