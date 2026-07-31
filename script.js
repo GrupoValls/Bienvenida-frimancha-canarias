@@ -250,8 +250,8 @@ function finalizar() {
     if (!p1 || !p2 || !p3 || !p4 || !p5) {
 
         alert("Debe responder las 5 preguntas.");
-
         return;
+
     }
 
 
@@ -282,47 +282,57 @@ function finalizar() {
             .forEach(radio => radio.checked = false);
 
         return;
+
     }
 
 
     //---------------------------------------------
-// TEST SUPERADO
-//---------------------------------------------
+    // TEST SUPERADO
+    //---------------------------------------------
 
-alert(
+    alert(
 
-    "¡¡ENHORABUENA!!\n\n" +
+        "¡¡ENHORABUENA!!\n\n" +
 
-    "HA SUPERADO CORRECTAMENTE EL TEST FINAL.\n\n" +
+        "HA SUPERADO CORRECTAMENTE EL TEST FINAL.\n\n" +
 
-    "POR FAVOR, PROCEDA A REALIZAR SU FIRMA DIGITAL PARA FINALIZAR LA FORMACIÓN."
+        "POR FAVOR, PROCEDA A REALIZAR SU FIRMA DIGITAL PARA FINALIZAR LA FORMACIÓN."
 
-);
-
-
-firmaSection.style.display = "block";
+    );
 
 
-// Inicializamos el recuadro de firma
+    // Mostramos la zona de firma
 
-inicializarFirma();
+    firmaSection.style.display = "block";
 
 
-// Bajamos automáticamente hasta la firma
+    // Inicializamos la firma
 
-firmaSection.scrollIntoView({
+    inicializarFirma();
 
-    behavior: "smooth"
+
+    // Bajamos automáticamente hasta la firma
+
+    firmaSection.scrollIntoView({
+
+        behavior: "smooth"
+
+    });
 
 }
-);
+
+
 //---------------------------------------------
 // INICIALIZAR FIRMA DIGITAL
 //---------------------------------------------
 
 function inicializarFirma() {
 
-    signaturePad = new SignaturePad(canvas);
+    if (!signaturePad) {
+
+        signaturePad = new SignaturePad(canvas);
+
+    }
 
 }
 
