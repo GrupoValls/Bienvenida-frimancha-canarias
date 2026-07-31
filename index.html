@@ -1,263 +1,152 @@
-<!DOCTYPE html>
-<html lang="es">
+<!-- NOMBRE -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenida Frimancha Canarias</title>
+<input
+    type="text"
+    id="nombre"
+    placeholder="Nombre">
 
-    <link rel="stylesheet" href="style.css">
-</head>
 
-<body>
+<!-- APELLIDOS -->
 
-    <div class="container">
+<input
+    type="text"
+    id="apellidos"
+    placeholder="Apellidos">
 
-        <img src="logo.png" alt="Logo Frimancha Canarias" class="logo">
 
-        <h1>Bienvenido a Frimancha Canarias</h1>
+<!-- DNI -->
 
-        <p class="descripcion">
+<input
+    type="text"
+    id="dni"
+    placeholder="DNI / NIE">
 
-            Por favor:
 
-            <br><br>
+<!-- FECHA DE NACIMIENTO -->
 
-            • Rellene todos los campos obligatorios.
+<input
+    type="text"
+    id="fechaNacimiento"
+    placeholder="Fecha de nacimiento (dd/mm/aaaa)">
 
-            <br>
 
-            • Visualice íntegramente el vídeo de bienvenida.
+<!-- TELÉFONO -->
 
-            <br>
+<input
+    type="tel"
+    id="telefono"
+    placeholder="Teléfono móvil">
 
-            • Complete correctamente el test final de 5 preguntas.
 
-        </p>
+<!-- EMAIL -->
 
+<input
+    type="email"
+    id="email"
+    placeholder="Correo electrónico">
 
-        <!-- FORMULARIO DE REGISTRO -->
 
-        <div id="registro">
+<!-- DIRECCIÓN -->
 
-            <input type="text" id="nombre" placeholder="Nombre">
+<input
+    type="text"
+    id="direccion"
+    placeholder="Dirección personal">
 
-            <input type="text" id="apellidos" placeholder="Apellidos">
 
-            <input type="text" id="dni" placeholder="DNI / NIE">
+<!-- TALLA DE CALZADO -->
 
-            <input type="date" id="fechaNacimiento">
+<select id="tallaCalzado">
 
-            <input type="tel" id="telefono" placeholder="Teléfono móvil">
+    <option value="">Talla de calzado</option>
 
-            <input type="email" id="email" placeholder="Correo electrónico">
+    <option>35</option>
+    <option>36</option>
+    <option>37</option>
+    <option>38</option>
+    <option>39</option>
+    <option>40</option>
+    <option>41</option>
+    <option>42</option>
+    <option>43</option>
+    <option>44</option>
+    <option>45</option>
+    <option>46</option>
+    <option>47</option>
+    <option>48</option>
 
-            <input type="text" id="direccion" placeholder="Dirección personal">
+</select>
 
 
-            <!-- TALLA DE CALZADO -->
+<!-- TALLA DE PANTALÓN -->
 
-            <select id="tallaCalzado">
+<select id="tallaPantalon">
 
-                <option value="">Talla de calzado</option>
+    <option value="">Talla de pantalón</option>
 
-                <option>35</option>
-                <option>36</option>
-                <option>37</option>
-                <option>38</option>
-                <option>39</option>
-                <option>40</option>
-                <option>41</option>
-                <option>42</option>
-                <option>43</option>
-                <option>44</option>
-                <option>45</option>
-                <option>46</option>
-                <option>47</option>
-                <option>48</option>
+    <option>XS</option>
+    <option>S</option>
+    <option>M</option>
+    <option>L</option>
+    <option>XL</option>
+    <option>XXL</option>
+    <option>XXXL</option>
+    <option>4XL</option>
 
-            </select>
+</select>
 
 
-            <!-- TALLA DE PANTALÓN -->
+<!-- TALLA DE CAMISA -->
 
-            <select id="tallaPantalon">
+<select id="tallaCamisa">
 
-                <option value="">Talla de pantalón</option>
+    <option value="">Talla de camisa</option>
 
-                <option>XS</option>
-                <option>S</option>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
-                <option>XXL</option>
-                <option>XXXL</option>
-                <option>4XL</option>
+    <option>XS</option>
+    <option>S</option>
+    <option>M</option>
+    <option>L</option>
+    <option>XL</option>
+    <option>XXL</option>
+    <option>XXXL</option>
+    <option>4XL</option>
 
-            </select>
+</select>
 
 
-            <!-- TALLA DE CAMISA -->
+<br>
 
-            <select id="tallaCamisa">
 
-                <option value="">Talla de camisa</option>
+<p style="text-align: justify; font-size:14px;">
 
-                <option>XS</option>
-                <option>S</option>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
-                <option>XXL</option>
-                <option>XXXL</option>
-                <option>4XL</option>
+    <strong>Aviso de Protección de Datos:</strong>
 
-            </select>
+    <br><br>
 
+    Los datos personales facilitados serán tratados por las empresas integrantes del Grupo Valls Companys, de conformidad con el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD), con la finalidad de gestionar los procesos de contratación, acogida y formación inicial del personal.
 
-            <br>
+    Los datos no serán utilizados para fines distintos de los aquí indicados.
 
+</p>
 
-            <!-- AVISO RGPD -->
 
-            <p style="text-align: justify; font-size:14px;">
+<label>
 
-                <strong>Aviso de Protección de Datos:</strong>
+    <input type="checkbox" id="aceptaRGPD">
 
-                <br><br>
+    He leído y acepto el tratamiento de mis datos personales.
 
-                Los datos personales facilitados serán tratados por las empresas integrantes del Grupo Valls Companys, de conformidad con el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD), con la finalidad de gestionar los procesos de contratación, acogida y formación inicial del personal. Los datos no serán utilizados para fines distintos de los aquí indicados.
+</label>
 
-            </p>
 
+<br><br>
 
-            <label>
 
-                <input type="checkbox" id="aceptaRGPD">
+<button
+    id="btnIniciar"
+    onclick="iniciarVideo()"
+    disabled>
 
-                He leído y acepto el tratamiento de mis datos personales.
+    Comenzar formación
 
-            </label>
-
-            <br><br>
-
-
-            <button id="btnIniciar" onclick="iniciarVideo()" disabled>
-
-                Comenzar formación
-
-            </button>
-
-        </div>
-
-
-        <!-- VÍDEO -->
-
-        <div id="videoSection">
-
-            <h2>Vídeo de bienvenida</h2>
-
-            <video id="video" controls width="100%">
-
-                <source src="video.mp4" type="video/mp4">
-
-                Tu navegador no soporta vídeo HTML5.
-
-            </video>
-
-
-            <br><br>
-
-
-            <label>
-
-                <input type="checkbox" id="aceptaVideo" disabled>
-
-                Declaro haber visualizado íntegramente el vídeo de formación.
-
-            </label>
-
-
-            <br><br>
-
-
-            <button id="btnTest" onclick="mostrarTest()" disabled>
-
-                Realizar test
-
-            </button>
-
-        </div>
-
-
-        <!-- TEST -->
-
-        <div id="testSection" style="display:none;">
-
-            <h2>Test final</h2>
-
-
-            <p>1. ¿Cuál es el objetivo principal de esta formación?</p>
-
-            <input type="radio" name="p1">
-            Conocer la empresa y sus normas<br>
-
-            <input type="radio" name="p1">
-            Saltarse los procedimientos<br><br>
-
-
-
-            <p>2. ¿Debe cumplirse la normativa de seguridad?</p>
-
-            <input type="radio" name="p2">
-            Sí<br>
-
-            <input type="radio" name="p2">
-            No<br><br>
-
-
-
-            <p>3. ¿Es obligatorio visualizar el vídeo completo?</p>
-
-            <input type="radio" name="p3">
-            Sí<br>
-
-            <input type="radio" name="p3">
-            No<br><br>
-
-
-
-            <p>4. ¿Qué debe hacerse ante una incidencia?</p>
-
-            <input type="radio" name="p4">
-            Comunicarla<br>
-
-            <input type="radio" name="p4">
-            Ignorarla<br><br>
-
-
-
-            <p>5. ¿Quién debe cumplir las normas internas?</p>
-
-            <input type="radio" name="p5">
-            Todo el personal<br>
-
-            <input type="radio" name="p5">
-            Solo los responsables<br><br>
-
-
-            <button onclick="finalizar()">
-
-                Enviar test
-
-            </button>
-
-        </div>
-
-    </div>
-
-    <script src="script.js"></script>
-
-</body>
-
-</html>
+</button>
