@@ -48,8 +48,10 @@ const firmaSection = document.getElementById("firmaSection");
 
 const canvas = document.getElementById("signature-pad");
 
-const btnBorrarFirma = document.getElementById("btnBorrarFirma");
-const btnFinalizarFirma = document.getElementById("btnFinalizarFirma");
+const btnBorrarFirma =
+document.getElementById("btnBorrarFirma");
+const btnAceptarFirma =
+document.getElementById("btnAceptarFirma");
 
 let signaturePad;
 
@@ -328,6 +330,10 @@ function finalizar() {
 
 function inicializarFirma() {
 
+    btnBorrarFirma.addEventListener("click", function () {
+
+    signaturePad.clear();
+
     // Eliminamos la firma anterior si existe
 
     if (signaturePad) {
@@ -358,7 +364,7 @@ function inicializarFirma() {
 // FINALIZAR FORMACIÓN
 //---------------------------------------------
 
-btnFinalizarFirma.addEventListener("click", function () {
+btnAceptarFirma.addEventListener("click", function () {
 
     if (signaturePad.isEmpty()) {
 
@@ -369,9 +375,6 @@ btnFinalizarFirma.addEventListener("click", function () {
         return;
 
     }
-
-
-    // Eliminamos todo el contenido de la página
 
     document.body.innerHTML = `
 
@@ -385,6 +388,8 @@ btnFinalizarFirma.addEventListener("click", function () {
             font-family:Arial;
             padding:40px;
         ">
+
+            <img src="logo.png" style="width:250px; margin-bottom:30px;">
 
             <h1 style="font-size:60px;">
                 ¡GRACIAS!
@@ -403,4 +408,5 @@ btnFinalizarFirma.addEventListener("click", function () {
     `;
 
 });
+
 
