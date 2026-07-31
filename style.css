@@ -220,23 +220,4 @@ label {
 
     }
 
-/* FIRMA DIGITAL */
-
-#signature-pad {
-
-    border: 3px solid #666;
-    border-radius: 10px;
-
-    background-color: white;
-
-    width: 100%;
-    max-width: 700px;
-    height: 250px;
-
-    margin: 20px auto;
-
-    display: block;
-
-    touch-action: none;
-
 }
