@@ -17,11 +17,47 @@
 
         <h1>Bienvenido a Frimancha Canarias</h1>
 
+        <!-- REGISTRO -->
+
         <div id="registro">
 
-            <input type="text" id="nombre" placeholder="Nombre completo">
+            <input type="text" id="nombre" placeholder="Nombre">
+
+            <input type="text" id="apellidos" placeholder="Apellidos">
+
+            <input type="text" id="dni" placeholder="DNI / NIE">
+
+            <input type="date" id="fechaNacimiento">
+
+            <input type="tel" id="telefono" placeholder="Teléfono móvil">
 
             <input type="email" id="email" placeholder="Correo electrónico">
+
+            <input type="text" id="direccion" placeholder="Dirección personal">
+
+            <input type="number" id="tallaCalzado" placeholder="Talla de calzado">
+
+            <input type="number" id="tallaPantalon" placeholder="Talla de pantalón">
+
+            <input type="number" id="tallaCamisa" placeholder="Talla de camisa">
+
+
+            <br><br>
+
+            <p style="text-align:justify; font-size:14px;">
+
+                <strong>Aviso de Protección de Datos:</strong><br>
+
+                Los datos personales facilitados serán tratados por las empresas integrantes del Grupo Valls Companys, de conformidad con el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD), con la finalidad de gestionar los procesos de contratación, acogida y formación inicial del personal. Los datos no serán utilizados para fines distintos de los aquí indicados.
+
+            </p>
+
+            <label>
+                <input type="checkbox" id="aceptaRGPD">
+                He leído y acepto el tratamiento de mis datos personales.
+            </label>
+
+            <br><br>
 
             <button id="btnIniciar" onclick="iniciarVideo()" disabled>
                 Comenzar formación
@@ -29,14 +65,24 @@
 
         </div>
 
+
+        <!-- VIDEO -->
+
         <div id="videoSection">
 
             <h2>Vídeo de bienvenida</h2>
 
-              <video id="video" controls width="100%">
+            <video id="video" width="100%">
                 <source src="video.mp4" type="video/mp4">
                 Tu navegador no soporta vídeo HTML5.
             </video>
+
+            <br><br>
+
+            <label>
+                <input type="checkbox" id="aceptaVideo" disabled>
+                Declaro haber visualizado íntegramente el vídeo de formación.
+            </label>
 
             <br><br>
 
@@ -46,29 +92,57 @@
 
         </div>
 
+
+        <!-- TEST -->
+
         <div id="testSection" style="display:none;">
 
             <h2>Test final</h2>
 
             <p>1. ¿Cuál es el objetivo principal de esta formación?</p>
-            <input type="radio" name="p1"> Conocer la empresa y sus normas<br>
-            <input type="radio" name="p1"> Saltarse los procedimientos<br><br>
+
+            <input type="radio" name="p1">
+            Conocer la empresa y sus normas<br>
+
+            <input type="radio" name="p1">
+            Saltarse los procedimientos<br><br>
+
 
             <p>2. ¿Debe cumplirse la normativa de seguridad?</p>
-            <input type="radio" name="p2"> Sí<br>
-            <input type="radio" name="p2"> No<br><br>
+
+            <input type="radio" name="p2">
+            Sí<br>
+
+            <input type="radio" name="p2">
+            No<br><br>
+
 
             <p>3. ¿Es obligatorio visualizar el vídeo completo?</p>
-            <input type="radio" name="p3"> Sí<br>
-            <input type="radio" name="p3"> No<br><br>
+
+            <input type="radio" name="p3">
+            Sí<br>
+
+            <input type="radio" name="p3">
+            No<br><br>
+
 
             <p>4. ¿Qué debe hacerse ante una incidencia?</p>
-            <input type="radio" name="p4"> Comunicarla<br>
-            <input type="radio" name="p4"> Ignorarla<br><br>
+
+            <input type="radio" name="p4">
+            Comunicarla<br>
+
+            <input type="radio" name="p4">
+            Ignorarla<br><br>
+
 
             <p>5. ¿Quién debe cumplir las normas internas?</p>
-            <input type="radio" name="p5"> Todo el personal<br>
-            <input type="radio" name="p5"> Solo los responsables<br><br>
+
+            <input type="radio" name="p5">
+            Todo el personal<br>
+
+            <input type="radio" name="p5">
+            Solo los responsables<br><br>
+
 
             <button onclick="finalizar()">
                 Enviar test
