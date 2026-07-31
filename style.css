@@ -1,230 +1,253 @@
-/*--------------------------------------------------
-GENERAL
---------------------------------------------------*/
-
-body{
-    margin:0;
-    padding:0;
-    background:#f4f6f8;
-    font-family:Arial, Helvetica, sans-serif;
+body {
+    margin: 0;
+    padding: 0;
+    background: #f4f6f8;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.container{
-    max-width:900px;
-    margin:auto;
-    padding:40px;
-    text-align:center;
+
+/* CONTENEDOR PRINCIPAL */
+
+.container {
+
+    max-width: 900px;
+    margin: auto;
+    padding: 40px;
+    text-align: center;
+
 }
 
-/*--------------------------------------------------
-LOGO
---------------------------------------------------*/
 
-.logo{
-    width:220px;
-    margin-bottom:20px;
+/* LOGO */
+
+.logo {
+
+    width: 220px;
+    margin-bottom: 20px;
+
 }
 
-/*--------------------------------------------------
-TEXTOS
---------------------------------------------------*/
 
-h1{
-    color:#333;
-    margin-bottom:15px;
+/* TÍTULO */
+
+h1 {
+
+    color: #333;
+    margin-bottom: 15px;
+
 }
 
-h2{
-    color:#333;
+
+/* DESCRIPCIÓN INICIAL */
+
+.descripcion {
+
+    max-width: 650px;
+    margin: auto;
+    margin-bottom: 30px;
+    line-height: 1.7;
+    font-size: 17px;
+    color: #555;
+
 }
 
-.descripcion{
-    max-width:650px;
-    margin:auto;
-    margin-bottom:30px;
-    line-height:1.7;
-    font-size:17px;
-    color:#555;
-}
 
-/*--------------------------------------------------
-FORMULARIO
---------------------------------------------------*/
+/* CAMPOS DEL FORMULARIO */
 
 input,
-select{
-    width:100%;
-    max-width:600px;
-    padding:14px;
-    margin:10px auto;
-    display:block;
-    border:1px solid #ccc;
-    border-radius:8px;
-    font-size:16px;
-    box-sizing:border-box;
-    background:#fff;
+select {
+
+    width: 100%;
+    max-width: 600px;
+    padding: 14px;
+    margin: 10px auto;
+    display: block;
+
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+
+    font-size: 16px;
+    box-sizing: border-box;
+
 }
 
-input[type="checkbox"]{
-    width:auto;
-    display:inline-block;
-    margin-right:10px;
+
+/* CHECKBOXES */
+
+input[type="checkbox"] {
+
+    width: auto;
+    display: inline-block;
+    margin-right: 10px;
+
 }
 
-input[type="radio"]{
-    width:auto;
-    display:inline-block;
-    margin-right:10px;
+
+/* TEXTOS LEGALES */
+
+p {
+
+    line-height: 1.6;
+
 }
 
-label{
-    line-height:1.6;
+
+/* BOTONES */
+
+button {
+
+    background: #f47c20;
+    color: white;
+    border: none;
+
+    padding: 14px 25px;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
 }
 
-/*--------------------------------------------------
-BOTONES
---------------------------------------------------*/
 
-button{
-    background:#f47c20;
-    color:#fff;
-    border:none;
-    padding:14px 30px;
-    border-radius:8px;
-    font-size:16px;
-    cursor:pointer;
-    transition:0.25s;
-    margin:5px;
+button:hover {
+
+    background: #dd6d17;
+
 }
 
-button:hover{
-    background:#d96a14;
+
+button:disabled {
+
+    background: grey;
+    cursor: not-allowed;
+
 }
 
-button:disabled{
-    background:#999;
-    cursor:not-allowed;
+
+/* VÍDEO */
+
+video {
+
+    width: 100%;
+    max-width: 800px;
+
+    border-radius: 10px;
+
+    margin-top: 20px;
+
 }
 
-/*--------------------------------------------------
-VIDEO
---------------------------------------------------*/
 
-#videoSection{
-    margin-top:30px;
+/* TEST */
+
+#testSection {
+
+    margin-top: 40px;
+    text-align: left;
+
 }
 
-video{
-    width:100%;
-    max-width:800px;
-    border-radius:12px;
-    margin-top:20px;
+
+#testSection h2 {
+
+    text-align: center;
+
 }
 
-/*--------------------------------------------------
-TEST
---------------------------------------------------*/
 
-#testSection{
-    margin-top:40px;
-    text-align:left;
-    max-width:800px;
-    margin-left:auto;
-    margin-right:auto;
+#testSection p {
+
+    font-weight: bold;
+    margin-top: 25px;
+
 }
 
-#testSection h2{
-    text-align:center;
+
+/* RADIO BUTTONS */
+
+input[type="radio"] {
+
+    width: auto;
+    display: inline-block;
+    margin-right: 10px;
+
 }
 
-#testSection p{
-    font-weight:bold;
-    margin-top:30px;
-    margin-bottom:10px;
+
+/* LABELS */
+
+label {
+
+    display: inline-block;
+    line-height: 1.6;
+    margin-top: 10px;
+
 }
 
-/*--------------------------------------------------
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    .container {
+
+        padding: 20px;
+
+    }
+
+
+    .logo {
+
+        width: 180px;
+
+    }
+
+
+    .descripcion {
+
+        font-size: 15px;
+
+    }
+
+
+    button {
+
+        width: 100%;
+
+    }
+
+/*-------------------------------------------------
 FIRMA DIGITAL
---------------------------------------------------*/
+-------------------------------------------------*/
 
 #firmaSection{
-    margin-top:50px;
+
+    margin-top:40px;
     text-align:center;
+
 }
+
 
 #signature-pad{
+
     width:100%;
-    max-width:800px;
-    height:250px;
-    display:block;
-    margin:20px auto;
-    background:#ffffff;
-    border:3px solid #888;
-    border-radius:12px;
-    cursor:crosshair;
-    touch-action:none;
-    box-sizing:border-box;
-}
-
-/*--------------------------------------------------
-PANTALLA FINAL
---------------------------------------------------*/
-
-#pantallaFinal{
-    display:none;
-    min-height:100vh;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    text-align:center;
-    padding:40px;
-    box-sizing:border-box;
-}
-
-#pantallaFinal h1{
-    font-size:64px;
-    color:#f47c20;
-    margin-bottom:20px;
-}
-
-#pantallaFinal p{
-    font-size:20px;
-    color:#555;
     max-width:700px;
-}
+    height:250px;
 
-/*--------------------------------------------------
-RESPONSIVE
---------------------------------------------------*/
+    background-color:#d9d9d9;
 
-@media (max-width:768px){
+    border-radius:10px;
 
-    .container{
-        padding:20px;
-    }
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.15);
 
-    .logo{
-        width:180px;
-    }
+    display:block;
 
-    .descripcion{
-        font-size:15px;
-    }
+    margin:20px auto;
 
-    button{
-        width:100%;
-        max-width:400px;
-    }
+    touch-action:none;
 
-    #signature-pad{
-        height:220px;
-    }
-
-    #pantallaFinal h1{
-        font-size:42px;
-    }
-
-    #pantallaFinal p{
-        font-size:18px;
-    }
 }
