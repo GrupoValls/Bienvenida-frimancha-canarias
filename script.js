@@ -328,21 +328,31 @@ function finalizar() {
 
 function inicializarFirma() {
 
+    // Eliminamos la firma anterior si existe
+
+    if (signaturePad) {
+
+        signaturePad.off();
+
+    }
+
+
+    // Obtenemos el tamaño REAL que tiene el canvas en pantalla
+
+    const rect = canvas.getBoundingClientRect();
+
+
+    // Ajustamos el tamaño interno del canvas
+
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+
+
+    // Creamos la zona de firma
+
     signaturePad = new SignaturePad(canvas);
 
 }
-
-
-//---------------------------------------------
-// BORRAR FIRMA
-//---------------------------------------------
-
-btnBorrarFirma.addEventListener("click", function () {
-
-    signaturePad.clear();
-
-});
-
 
 //---------------------------------------------
 // FINALIZAR FORMACIÓN
