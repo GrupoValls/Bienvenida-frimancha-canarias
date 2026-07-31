@@ -328,11 +328,19 @@ function finalizar() {
 
 function inicializarFirma() {
 
-    if (!signaturePad) {
+    // Ajustamos el tamaño del canvas para móviles y tablets
 
-        signaturePad = new SignaturePad(canvas);
+    const ratio = Math.max(window.devicePixelRatio || 1, 1);
 
-    }
+    canvas.width = canvas.offsetWidth * ratio;
+    canvas.height = 250 * ratio;
+
+    canvas.getContext("2d").scale(ratio, ratio);
+
+
+    // Creamos el área de firma
+
+    signaturePad = new SignaturePad(canvas);
 
 }
 
