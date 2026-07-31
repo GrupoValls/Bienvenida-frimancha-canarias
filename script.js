@@ -49,7 +49,7 @@ const firmaSection = document.getElementById("firmaSection");
 const canvas = document.getElementById("signature-pad");
 
 const btnBorrarFirma = document.getElementById("btnBorrarFirma");
-const btnFinalizarFirma = document.getElementById("btnFinalizarFirma");
+const btnAceptarFirma = document.getElementById("btnAceptarFirma");
 
 let signaturePad;
 
@@ -357,7 +357,7 @@ btnBorrarFirma.addEventListener("click", function () {
 // FINALIZAR FORMACIÓN
 //---------------------------------------------
 
-btnFinalizarFirma.addEventListener("click", function () {
+btnAceptarFirma.addEventListener("click", function () {
 
     if (signaturePad.isEmpty()) {
 
