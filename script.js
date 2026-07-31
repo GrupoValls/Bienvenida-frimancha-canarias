@@ -359,6 +359,7 @@ btnBorrarFirma.addEventListener("click", function () {
 
 btnAceptarFirma.addEventListener("click", function () {
 
+
     if (signaturePad.isEmpty()) {
 
         alert(
@@ -370,20 +371,98 @@ btnAceptarFirma.addEventListener("click", function () {
     }
 
 
-    // Ocultar todo
+    // Capturamos firma
 
-    document.querySelector(".container").style.display = "none";
-
-
-    // Mostrar pantalla final
-
-    const pantallaFinal = document.getElementById("pantallaFinal");
-
-    pantallaFinal.style.display = "block";
+    const firmaBase64 = signaturePad.toDataURL();
 
 
-    pantallaFinal.scrollIntoView({
-        behavior: "smooth"
+
+    // Enviamos datos a Google Apps Script
+
+    fetch(
+        "https://script.google.com/macros/s/AKfycbwITL3q603h8X8C-8zPSUzOskNxIs0O3AQQUt4YRWW0ZpomZKJBN_VCWm4DWAdNL6SG/exec",
+        {
+
+            method: "POST",
+
+            body: JSON.stringify({
+
+                nombre: nombre.value,
+
+                apellidos: apellidos.value,
+
+                dni: dni.value,
+
+                fechaNacimiento: fechaNacimiento.value,
+
+                telefono: telefono.value,
+
+                email: email.value,
+
+                direccion: direccion.value,
+
+
+                tallaCalzado: tallaCalzado.value,
+
+                tallaPantalon: tallaPantalon.value,
+
+                tallaCamisa: tallaCamisa.value,
+
+
+                firma: firmaBase64
+
+            })
+
+        }
+
+    )
+
+
+    .then(response => response.text())
+
+
+    .then(resultado => {
+
+
+        console.log(resultado);
+
+
+
+        // Mostrar pantalla final
+
+
+        document.querySelector(".container").style.display = "none";
+
+
+        const pantallaFinal =
+            document.getElementById("pantallaFinal");
+
+
+        pantallaFinal.style.display = "block";
+
+
+        pantallaFinal.scrollIntoView({
+
+            behavior:"smooth"
+
+        });
+
+
+    })
+
+
+    .catch(error => {
+
+
+        alert(
+            "Se ha producido un error enviando el registro."
+        );
+
+
+        console.error(error);
+
+
     });
+
 
 });
