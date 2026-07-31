@@ -27,19 +27,19 @@ const btnTest = document.getElementById("btnTest");
 
 
 //---------------------------------------------
+// VÍDEO
+//---------------------------------------------
+
+const video = document.getElementById("video");
+
+
+//---------------------------------------------
 // SECCIONES
 //---------------------------------------------
 
 const videoSection = document.getElementById("videoSection");
 const testSection = document.getElementById("testSection");
 const registro = document.getElementById("registro");
-
-
-//---------------------------------------------
-// VÍDEO
-//---------------------------------------------
-
-const video = document.getElementById("video");
 
 
 //---------------------------------------------
@@ -92,13 +92,9 @@ telefono.addEventListener("input", validarFormulario);
 email.addEventListener("input", validarFormulario);
 direccion.addEventListener("input", validarFormulario);
 
-// DESPLEGABLES
-
 tallaCalzado.addEventListener("change", validarFormulario);
 tallaPantalon.addEventListener("change", validarFormulario);
 tallaCamisa.addEventListener("change", validarFormulario);
-
-// CHECK RGPD
 
 aceptaRGPD.addEventListener("change", validarFormulario);
 
@@ -140,7 +136,6 @@ video.addEventListener("timeupdate", function () {
         ultimaPosicionValida = video.currentTime;
 
         if (video.currentTime > tiempoMaximoVisto) {
-
             tiempoMaximoVisto = video.currentTime;
         }
     }
@@ -149,9 +144,11 @@ video.addEventListener("timeupdate", function () {
     // VÍDEO COMPLETADO
 
     if (
+
         !testActivado &&
         video.duration > 0 &&
         tiempoMaximoVisto >= (video.duration - 1)
+
     ) {
 
         testActivado = true;
@@ -159,8 +156,7 @@ video.addEventListener("timeupdate", function () {
         aceptaVideo.disabled = false;
 
         alert(
-            "Vídeo completado.\n\n" +
-            "Marque la casilla para continuar con el test."
+            "Vídeo completado.\n\nYa puede marcar la casilla y realizar el test."
         );
 
     }
@@ -169,7 +165,7 @@ video.addEventListener("timeupdate", function () {
 
 
 //---------------------------------------------
-// IMPEDIR ADELANTAR EL VÍDEO
+// ANTI-ADELANTO DEL VÍDEO
 //---------------------------------------------
 
 video.addEventListener("seeking", function () {
@@ -177,8 +173,7 @@ video.addEventListener("seeking", function () {
     if (video.currentTime > tiempoMaximoVisto + 1) {
 
         alert(
-            "Debe visualizar el vídeo completo.\n\n" +
-            "No se permite adelantar el vídeo."
+            "Debe visualizar el vídeo completo.\n\nNo se permite adelantar el vídeo."
         );
 
         video.currentTime = ultimaPosicionValida;
@@ -239,8 +234,6 @@ function finalizar() {
     const p4 = document.querySelector('input[name="p4"]:checked');
     const p5 = document.querySelector('input[name="p5"]:checked');
 
-
-    // COMPROBAR QUE SE HAN RESPONDIDO TODAS
 
     if (!p1 || !p2 || !p3 || !p4 || !p5) {
 
