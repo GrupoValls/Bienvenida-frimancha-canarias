@@ -359,57 +359,46 @@ btnBorrarFirma.addEventListener("click", function () {
 
 btnAceptarFirma.addEventListener("click", function () {
 
-    alert("Botón aceptar pulsado");
-
-
+    // Comprobar que existe una firma
     if (signaturePad.isEmpty()) {
 
-        alert(
-            "DEBE REALIZAR SU FIRMA DIGITAL PARA FINALIZAR LA FORMACIÓN."
-        );
+        alert("DEBE REALIZAR SU FIRMA DIGITAL PARA FINALIZAR LA FORMACIÓN.");
 
         return;
 
     }
 
+    // Evitar varios clics
+    btnAceptarFirma.disabled = true;
+    btnAceptarFirma.textContent = "Enviando...";
 
-    // Capturamos firma
-
+    // Capturamos la firma
     const firmaBase64 = signaturePad.toDataURL();
 
-
-
-    // Enviamos datos a Google Apps Script
-
+    // Enviar datos al Apps Script
     fetch(
         "https://script.google.com/macros/s/AKfycbwITL3q603h8X8C-8zPSUzOskNxIs0O3AQQUt4YRWW0ZpomZKJBN_VCWm4DWAdNL6SG/exec",
         {
 
             method: "POST",
 
+            headers: {
+                "Content-Type": "application/json"
+            },
+
             body: JSON.stringify({
 
                 nombre: nombre.value,
-
                 apellidos: apellidos.value,
-
                 dni: dni.value,
-
                 fechaNacimiento: fechaNacimiento.value,
-
                 telefono: telefono.value,
-
                 email: email.value,
-
                 direccion: direccion.value,
 
-
                 tallaCalzado: tallaCalzado.value,
-
                 tallaPantalon: tallaPantalon.value,
-
                 tallaCamisa: tallaCamisa.value,
-
 
                 firma: firmaBase64
 
@@ -419,52 +408,43 @@ btnAceptarFirma.addEventListener("click", function () {
 
     )
 
+    .then(response => {
 
-    .then(response => response.text())
+        if (!response.ok) {
+            throw new Error("Error del servidor");
+        }
 
-
-    .then(resultado => {
-
-
-        console.log(resultado);
-
-
-
-        // Mostrar pantalla final
-
-
-        document.querySelector(".container").style.display = "none";
-
-
-        const pantallaFinal =
-            document.getElementById("pantallaFinal");
-
-
-        pantallaFinal.style.display = "block";
-
-
-        pantallaFinal.scrollIntoView({
-
-            behavior:"smooth"
-
-        });
-
+        return response.text();
 
     })
 
+    .then(resultado => {
+
+        console.log("Respuesta Apps Script:", resultado);
+
+        // Ocultar toda la aplicación
+        document.querySelector(".container").style.display = "none";
+
+        // Mostrar pantalla final
+        document.getElementById("pantallaFinal").style.display = "block";
+
+        // Subir al inicio
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    })
 
     .catch(error => {
 
-
-        alert(
-            "Se ha producido un error enviando el registro."
-        );
-
-
         console.error(error);
 
+        btnAceptarFirma.disabled = false;
+        btnAceptarFirma.textContent = "ACEPTAR FIRMA";
+
+        alert("Se ha producido un error enviando el registro. Inténtelo de nuevo.");
 
     });
-
 
 });
