@@ -213,98 +213,103 @@
 
 
 
-    <!-- TEST -->
+<!-- TEST -->
 
-    <div id="testSection" style="display:none;">
+<div id="testSection" style="display:none;">
 
-        <h2>Test final</h2>
+    <h2>Test final</h2>
 
+    <p>1. ¿Cuál es el objetivo principal de esta formación?</p>
 
-        <p>1. ¿Cuál es el objetivo principal de esta formación?</p>
-
+    <label>
         <input type="radio" name="p1">
-        Conocer la empresa y sus normas<br>
+        Conocer la empresa y sus normas
+    </label><br>
 
+    <label>
         <input type="radio" name="p1">
-        Saltarse los procedimientos<br><br>
+        Saltarse los procedimientos
+    </label>
 
+    <p>2. ¿Debe cumplirse la normativa de seguridad?</p>
 
-
-        <p>2. ¿Debe cumplirse la normativa de seguridad?</p>
-
+    <label>
         <input type="radio" name="p2">
-        Sí<br>
+        Sí
+    </label><br>
 
+    <label>
         <input type="radio" name="p2">
-        No<br><br>
+        No
+    </label>
 
+    <p>3. ¿Es obligatorio visualizar el vídeo completo?</p>
 
-
-        <p>3. ¿Es obligatorio visualizar el vídeo completo?</p>
-
+    <label>
         <input type="radio" name="p3">
-        Sí<br>
+        Sí
+    </label><br>
 
+    <label>
         <input type="radio" name="p3">
-        No<br><br>
+        No
+    </label>
 
+    <p>4. ¿Qué debe hacerse ante una incidencia?</p>
 
-
-        <p>4. ¿Qué debe hacerse ante una incidencia?</p>
-
+    <label>
         <input type="radio" name="p4">
-        Comunicarla<br>
+        Comunicarla
+    </label><br>
 
+    <label>
         <input type="radio" name="p4">
-        Ignorarla<br><br>
+        Ignorarla
+    </label>
 
+    <p>5. ¿Quién debe cumplir las normas internas?</p>
 
-
-        <p>5. ¿Quién debe cumplir las normas internas?</p>
-
+    <label>
         <input type="radio" name="p5">
-        Todo el personal<br>
+        Todo el personal
+    </label><br>
 
+    <label>
         <input type="radio" name="p5">
-        Solo los responsables<br><br>
+        Solo los responsables
+    </label>
 
+    <br><br>
 
-        <button onclick="finalizar()">
+    <button onclick="finalizar()">
+        Enviar test
+    </button>
 
-            Enviar test
+</div>
 
-        </button>
-
-    </div>
-
-
-
-   <!-- FIRMA DIGITAL -->
+<!-- FIRMA DIGITAL -->
 
 <div id="firmaSection" style="display:none;">
 
     <h2>Firma digital</h2>
 
     <p>
-        Firme en el recuadro inferior para finalizar la formación.
+        Firme en el recuadro para finalizar la formación.
     </p>
 
     <canvas id="signature-pad"></canvas>
 
-    <br><br>
+    <br>
 
     <button id="btnBorrarFirma">
         Borrar firma
     </button>
 
-    <br><br>
-
     <button id="btnAceptarFirma">
-        Aceptar firma
+        Finalizar formación
     </button>
 
 </div>
-
 
 <!-- PANTALLA FINAL -->
 
@@ -316,7 +321,7 @@
 
     <p class="descripcion">
 
-        Ha completado correctamente su proceso de acogida.
+        Ha completado correctamente el proceso de acogida.
 
         <br><br>
 
