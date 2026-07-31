@@ -365,30 +365,36 @@ btnFinalizarFirma.addEventListener("click", function () {
     }
 
 
-   document.body.innerHTML = `
+    // Eliminamos todo el contenido de la página
 
-<div style="
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    font-family:Arial, sans-serif;
-    text-align:center;
-    padding:30px;
-">
+    document.body.innerHTML = `
 
-    <div>
+        <div style="
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            text-align:center;
+            font-family:Arial;
+            padding:40px;
+        ">
 
-        <h1>¡GRACIAS!</h1>
+            <h1 style="font-size:60px;">
+                ¡GRACIAS!
+            </h1>
 
-        <h2>Formación finalizada correctamente.</h2>
+            <h2>
+                Formación completada correctamente.
+            </h2>
 
-        <p>
-            El proceso de acogida ha sido completado con éxito.
-        </p>
+            <p>
+                Gracias por completar el proceso de acogida de Frimancha Canarias.
+            </p>
 
-    </div>
+        </div>
 
-</div>
+    `;
 
-`;
+});
+
