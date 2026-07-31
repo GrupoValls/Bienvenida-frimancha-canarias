@@ -403,8 +403,6 @@ btnAceptarFirma.addEventListener("click", function () {
 
   .then(response => response.text())
 
-    })
-
     .then(resultado => {
 
         console.log("Respuesta Apps Script:", resultado);
