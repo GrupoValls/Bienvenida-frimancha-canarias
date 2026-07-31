@@ -376,45 +376,32 @@ btnAceptarFirma.addEventListener("click", function () {
     const firmaBase64 = signaturePad.toDataURL();
 
     // Enviar datos al Apps Script
-    fetch(
-        "https://script.google.com/macros/s/AKfycbwITL3q603h8X8C-8zPSUzOskNxIs0O3AQQUt4YRWW0ZpomZKJBN_VCWm4DWAdNL6SG/exec",
-        {
+  fetch(
+    "https://script.google.com/macros/s/AKfycbwITL3q603h8X8C-8zPSUzOskNxIs0O3AQQUt4YRWW0ZpomZKJBN_VCWm4DWAdNL6SG/exec",
+    {
+        method: "POST",
+        body: JSON.stringify({
 
-            method: "POST",
+            nombre: nombre.value,
+            apellidos: apellidos.value,
+            dni: dni.value,
+            fechaNacimiento: fechaNacimiento.value,
+            telefono: telefono.value,
+            email: email.value,
+            direccion: direccion.value,
 
-            headers: {
-                "Content-Type": "application/json"
-            },
+            tallaCalzado: tallaCalzado.value,
+            tallaPantalon: tallaPantalon.value,
+            tallaCamisa: tallaCamisa.value,
 
-            body: JSON.stringify({
+            firma: firmaBase64
 
-                nombre: nombre.value,
-                apellidos: apellidos.value,
-                dni: dni.value,
-                fechaNacimiento: fechaNacimiento.value,
-                telefono: telefono.value,
-                email: email.value,
-                direccion: direccion.value,
+        })
+    }
+)
 
-                tallaCalzado: tallaCalzado.value,
-                tallaPantalon: tallaPantalon.value,
-                tallaCamisa: tallaCamisa.value,
 
-                firma: firmaBase64
-
-            })
-
-        }
-
-    )
-
-    .then(response => {
-
-        if (!response.ok) {
-            throw new Error("Error del servidor");
-        }
-
-        return response.text();
+  .then(response => response.text())
 
     })
 
