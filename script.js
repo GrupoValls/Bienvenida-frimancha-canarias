@@ -370,36 +370,20 @@ btnAceptarFirma.addEventListener("click", function () {
     }
 
 
-    // Eliminamos todo el contenido de la página
+    // Ocultar todo
 
-    document.body.innerHTML = `
+    document.querySelector(".container").style.display = "none";
 
-        <div style="
-            display:flex;
-            flex-direction:column;
-            justify-content:center;
-            align-items:center;
-            height:100vh;
-            text-align:center;
-            font-family:Arial;
-            padding:40px;
-        ">
 
-            <h1 style="font-size:60px;">
-                ¡GRACIAS!
-            </h1>
+    // Mostrar pantalla final
 
-            <h2>
-                Formación completada correctamente.
-            </h2>
+    const pantallaFinal = document.getElementById("pantallaFinal");
 
-            <p>
-                Gracias por completar el proceso de acogida de Frimancha Canarias.
-            </p>
+    pantallaFinal.style.display = "block";
 
-        </div>
 
-    `;
+    pantallaFinal.scrollIntoView({
+        behavior: "smooth"
+    });
 
 });
-
