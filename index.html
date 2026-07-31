@@ -1,228 +1,319 @@
-body{
-    margin:0;
-    padding:0;
-    background:#f4f6f8;
-    font-family:Arial,Helvetica,sans-serif;
-}
+<!DOCTYPE html>
+<html lang="es">
 
-.container{
-    max-width:900px;
-    margin:auto;
-    padding:40px;
-    text-align:center;
-}
+<head>
 
-.logo{
-    width:220px;
-    margin-bottom:20px;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-h1{
-    color:#333;
-    margin-bottom:15px;
-}
+    <title>Bienvenida Frimancha Canarias</title>
 
-.descripcion{
-    max-width:650px;
-    margin:auto;
-    margin-bottom:30px;
-    line-height:1.7;
-    font-size:17px;
-    color:#555;
-}
+    <link rel="stylesheet" href="style.css">
 
-input,
-select{
-    width:100%;
-    max-width:600px;
-    padding:14px;
-    margin:10px auto;
-    display:block;
+</head>
 
-    border:1px solid #ccc;
-    border-radius:8px;
+<body>
 
-    font-size:16px;
-    box-sizing:border-box;
-}
+<div class="container">
 
-input[type="checkbox"]{
-    width:auto;
-    display:inline-block;
-    margin-right:10px;
-}
+    <img src="logo.png" alt="Logo Frimancha Canarias" class="logo">
 
-input[type="radio"]{
-    width:auto;
-    display:inline-block;
-    margin-right:10px;
-}
+    <h1>Bienvenido a Frimancha Canarias</h1>
 
-label{
-    display:inline-block;
-    line-height:1.6;
-    margin-top:10px;
-}
+    <p class="descripcion">
 
-button{
+        Por favor:
 
-    background:#f47c20;
-    color:white;
-    border:none;
+        <br><br>
 
-    padding:14px 30px;
+        • Rellene todos los campos obligatorios.
 
-    border-radius:8px;
+        <br>
 
-    font-size:16px;
+        • Visualice íntegramente el vídeo de bienvenida.
 
-    cursor:pointer;
+        <br>
 
-    transition:.25s;
+        • Complete correctamente el test final de 5 preguntas.
 
-}
+    </p>
 
-button:hover{
+    <!-- FORMULARIO -->
 
-    background:#d96a14;
+    <div id="registro">
 
-}
+        <input type="text" id="nombre" placeholder="Nombre">
 
-button:disabled{
+        <input type="text" id="apellidos" placeholder="Apellidos">
 
-    background:#999;
-    cursor:not-allowed;
+        <input type="text" id="dni" placeholder="DNI / NIE">
 
-}
+        <input type="text"
+               id="fechaNacimiento"
+               placeholder="Fecha de nacimiento (dd/mm/aaaa)">
 
-video{
+        <input type="tel"
+               id="telefono"
+               placeholder="Teléfono móvil">
 
-    width:100%;
-    max-width:800px;
+        <input type="email"
+               id="email"
+               placeholder="Correo electrónico">
 
-    border-radius:12px;
+        <input type="text"
+               id="direccion"
+               placeholder="Dirección personal">
 
-    margin-top:20px;
+        <select id="tallaCalzado">
 
-}
+            <option value="">Talla de calzado</option>
 
-#testSection{
+            <option>35</option>
+            <option>36</option>
+            <option>37</option>
+            <option>38</option>
+            <option>39</option>
+            <option>40</option>
+            <option>41</option>
+            <option>42</option>
+            <option>43</option>
+            <option>44</option>
+            <option>45</option>
+            <option>46</option>
+            <option>47</option>
+            <option>48</option>
 
-    text-align:left;
-    margin-top:40px;
+        </select>
 
-}
+        <select id="tallaPantalon">
 
-#testSection h2{
+            <option value="">Talla de pantalón</option>
 
-    text-align:center;
+            <option>XS</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+            <option>XXL</option>
+            <option>XXXL</option>
+            <option>4XL</option>
 
-}
+        </select>
 
-#testSection p{
+        <select id="tallaCamisa">
 
-    font-weight:bold;
-    margin-top:28px;
+            <option value="">Talla de camisa</option>
 
-}
+            <option>XS</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+            <option>XXL</option>
+            <option>XXXL</option>
+            <option>4XL</option>
 
-/************************************************/
-/* FIRMA */
-/************************************************/
+        </select>
 
-#firmaSection{
+        <br>
 
-    margin-top:50px;
+        <p style="text-align:justify;font-size:14px;">
 
-}
+            <strong>Aviso de Protección de Datos:</strong>
 
-#signature-pad{
+            <br><br>
 
-    width:100%;
-    max-width:800px;
-    height:250px;
+            Los datos personales facilitados serán tratados por las empresas integrantes del Grupo Valls Companys, de conformidad con el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD), con la finalidad de gestionar los procesos de contratación, acogida y formación inicial del personal.
 
-    display:block;
-    margin:auto;
+        </p>
 
-    background:#ececec;
+        <label>
 
-    border:3px solid #888;
+            <input type="checkbox" id="aceptaRGPD">
 
-    border-radius:12px;
+            He leído y acepto el tratamiento de mis datos personales.
 
-    touch-action:none;
+        </label>
 
-    cursor:crosshair;
+        <br><br>
 
-    box-sizing:border-box;
+        <button id="btnIniciar"
+                onclick="iniciarVideo()"
+                disabled>
 
-}
+            Comenzar formación
 
-/************************************************/
-/* PANTALLA FINAL */
-/************************************************/
+        </button>
 
-#pantallaFinal{
+    </div>
 
-    display:none;
+    <!-- VIDEO -->
 
-    height:100vh;
+    <div id="videoSection">
 
-    justify-content:center;
+        <h2>Vídeo de bienvenida</h2>
 
-    align-items:center;
+        <video id="video" controls width="100%">
 
-    flex-direction:column;
+            video.mp4="video/mp4">
 
-    text-align:center;
+            Tu navegador no soporta vídeo HTML5.
 
-}
+        </video>
 
-#pantallaFinal h1{
+        <br><br>
 
-    font-size:64px;
+        <label>
 
-    color:#f47c20;
+            <input type="checkbox"
+                   id="aceptaVideo"
+                   disabled>
 
-}
+            Declaro haber visualizado íntegramente el vídeo de formación.
 
-#pantallaFinal p{
+        </label>
 
-    font-size:20px;
+        <br><br>
 
-}
+        <button id="btnTest"
+                onclick="mostrarTest()"
+                disabled>
 
-@media(max-width:768px){
+            Realizar test
 
-.container{
+        </button>
 
-padding:20px;
+    </div>
 
-}
+    <!-- TEST -->
 
-.logo{
+    <div id="testSection" style="display:none;">
 
-width:180px;
+        <h2>Test final</h2>
 
-}
+        <p>1. ¿Cuál es el objetivo principal de esta formación?</p>
 
-.descripcion{
+        <label>
+            <input type="radio" name="p1">
+            Conocer la empresa y sus normas
+        </label><br>
 
-font-size:15px;
+        <label>
+            <input type="radio" name="p1">
+            Saltarse los procedimientos
+        </label>
 
-}
+        <p>2. ¿Debe cumplirse la normativa de seguridad?</p>
 
-button{
+        <label>
+            <input type="radio" name="p2">
+            Sí
+        </label><br>
 
-width:100%;
+        <label>
+            <input type="radio" name="p2">
+            No
+        </label>
 
-}
+        <p>3. ¿Es obligatorio visualizar el vídeo completo?</p>
 
-#signature-pad{
+        <label>
+            <input type="radio" name="p3">
+            Sí
+        </label><br>
 
-height:220px;
+        <label>
+            <input type="radio" name="p3">
+            No
+        </label>
 
-}
+        <p>4. ¿Qué debe hacerse ante una incidencia?</p>
 
-}
+        <label>
+            <input type="radio" name="p4">
+            Comunicarla
+        </label><br>
+
+        <label>
+            <input type="radio" name="p4">
+            Ignorarla
+        </label>
+
+        <p>5. ¿Quién debe cumplir las normas internas?</p>
+
+        <label>
+            <input type="radio" name="p5">
+            Todo el personal
+        </label><br>
+
+        <label>
+            <input type="radio" name="p5">
+            Solo los responsables
+        </label>
+
+        <br><br>
+
+        <button onclick="finalizar()">
+            Enviar test
+        </button>
+
+    </div>
+
+    <!-- FIRMA DIGITAL -->
+
+    <div id="firmaSection" style="display:none;">
+
+        <h2>Firma digital</h2>
+
+        <p>
+            Firme en el recuadro para finalizar la formación.
+        </p>
+
+        <canvas id="signature-pad"></canvas>
+
+        <br><br>
+
+        <button id="btnBorrarFirma">
+            Borrar firma
+        </button>
+
+        <button id="btnAceptarFirma">
+            Finalizar formación
+        </button>
+
+    </div>
+
+</div>
+
+<!-- PANTALLA FINAL -->
+
+<div id="pantallaFinal" style="display:none;">
+
+    <img src="logo.png"
+         alt="Logo Frimancha Canarias"
+         class="logo">
+
+    <h1>¡GRACIAS!</h1>
+
+    <p class="descripcion">
+
+        Ha completado correctamente el proceso de acogida.
+
+        <br><br>
+
+        Bienvenido al equipo de Frimancha Canarias.
+
+    </p>
+
+</div>
+
+<!-- LIBRERÍA DE FIRMA -->
+
+@4.1.7/dist/signature_pad.umd.min.js"></script>
+
+<!-- SCRIPT PRINCIPAL -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
