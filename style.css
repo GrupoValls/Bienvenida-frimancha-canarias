@@ -220,4 +220,27 @@ label {
 
     }
 
+/*-------------------------------------------------
+FIRMA DIGITAL
+-------------------------------------------------*/
+
+#firmaSection{
+
+    margin-top:40px;
+    text-align:center;
+
+}
+
+
+#signature-pad{
+
+    width:100%;
+    max-width:700px;
+    height:250px;
+
+    border:3px solid #000;
+    border-radius:10px;
+
+    background-color:#ffffff;
+
 }
