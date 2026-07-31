@@ -2,264 +2,327 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Bienvenida Frimancha Canarias</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <img src="logo.png" alt="Logo Frimancha Canarias" class="logo">
+    <img src="logo.png" alt="Logo Frimancha Canarias" class="logo">
 
-        <h1>Bienvenido a Frimancha Canarias</h1>
+    <h1>Bienvenido a Frimancha Canarias</h1>
 
-        <p class="descripcion">
+    <p class="descripcion">
 
-            Por favor:
+        Por favor:
+
+        <br><br>
+
+        • Rellene todos los campos obligatorios.
+
+        <br>
+
+        • Visualice íntegramente el vídeo de bienvenida.
+
+        <br>
+
+        • Complete correctamente el test final de 5 preguntas.
+
+    </p>
+
+
+    <!-- FORMULARIO DE REGISTRO -->
+
+    <div id="registro">
+
+        <input type="text" id="nombre" placeholder="Nombre">
+
+        <input type="text" id="apellidos" placeholder="Apellidos">
+
+        <input type="text" id="dni" placeholder="DNI / NIE">
+
+        <input type="text"
+               id="fechaNacimiento"
+               placeholder="Fecha de nacimiento (dd/mm/aaaa)">
+
+        <input type="tel"
+               id="telefono"
+               placeholder="Teléfono móvil">
+
+        <input type="email"
+               id="email"
+               placeholder="Correo electrónico">
+
+        <input type="text"
+               id="direccion"
+               placeholder="Dirección personal">
+
+
+
+        <!-- TALLA DE CALZADO -->
+
+        <select id="tallaCalzado">
+
+            <option value="">Talla de calzado</option>
+
+            <option>35</option>
+            <option>36</option>
+            <option>37</option>
+            <option>38</option>
+            <option>39</option>
+            <option>40</option>
+            <option>41</option>
+            <option>42</option>
+            <option>43</option>
+            <option>44</option>
+            <option>45</option>
+            <option>46</option>
+            <option>47</option>
+            <option>48</option>
+
+        </select>
+
+
+
+        <!-- TALLA PANTALÓN -->
+
+        <select id="tallaPantalon">
+
+            <option value="">Talla de pantalón</option>
+
+            <option>XS</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+            <option>XXL</option>
+            <option>XXXL</option>
+            <option>4XL</option>
+
+        </select>
+
+
+
+        <!-- TALLA CAMISA -->
+
+        <select id="tallaCamisa">
+
+            <option value="">Talla de camisa</option>
+
+            <option>XS</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+            <option>XXL</option>
+            <option>XXXL</option>
+            <option>4XL</option>
+
+        </select>
+
+
+        <br>
+
+
+        <!-- RGPD -->
+
+        <p style="text-align:justify; font-size:14px;">
+
+            <strong>Aviso de Protección de Datos:</strong>
 
             <br><br>
 
-            • Rellene todos los campos obligatorios.
-
-            <br>
-
-            • Visualice íntegramente el vídeo de bienvenida.
-
-            <br>
-
-            • Complete correctamente el test final de 5 preguntas.
+            Los datos personales facilitados serán tratados por las empresas integrantes del Grupo Valls Companys, de conformidad con el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD), con la finalidad de gestionar los procesos de contratación, acogida y formación inicial del personal. Los datos no serán utilizados para fines distintos de los aquí indicados.
 
         </p>
 
 
-        <!-- FORMULARIO DE REGISTRO -->
+        <label>
 
-        <div id="registro">
+            <input type="checkbox" id="aceptaRGPD">
 
-            <input type="text" id="nombre" placeholder="Nombre">
+            He leído y acepto el tratamiento de mis datos personales.
 
-            <input type="text" id="apellidos" placeholder="Apellidos">
+        </label>
 
-            <input type="text" id="dni" placeholder="DNI / NIE">
+        <br><br>
 
-            <input type="text"
-           id="fechaNacimiento"
-           placeholder="Fecha de nacimiento (dd/mm/aaaa)">
 
-            <input type="tel" id="telefono" placeholder="Teléfono móvil">
+        <button id="btnIniciar"
+                onclick="iniciarVideo()"
+                disabled>
 
-            <input type="email" id="email" placeholder="Correo electrónico">
+            Comenzar formación
 
-            <input type="text" id="direccion" placeholder="Dirección personal">
-
-
-            <!-- TALLA DE CALZADO -->
-
-            <select id="tallaCalzado">
-
-                <option value="">Talla de calzado</option>
-
-                <option>35</option>
-                <option>36</option>
-                <option>37</option>
-                <option>38</option>
-                <option>39</option>
-                <option>40</option>
-                <option>41</option>
-                <option>42</option>
-                <option>43</option>
-                <option>44</option>
-                <option>45</option>
-                <option>46</option>
-                <option>47</option>
-                <option>48</option>
-
-            </select>
-
-
-            <!-- TALLA DE PANTALÓN -->
-
-            <select id="tallaPantalon">
-
-                <option value="">Talla de pantalón</option>
-
-                <option>XS</option>
-                <option>S</option>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
-                <option>XXL</option>
-                <option>XXXL</option>
-                <option>4XL</option>
-
-            </select>
-
-
-            <!-- TALLA DE CAMISA -->
-
-            <select id="tallaCamisa">
-
-                <option value="">Talla de camisa</option>
-
-                <option>XS</option>
-                <option>S</option>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
-                <option>XXL</option>
-                <option>XXXL</option>
-                <option>4XL</option>
-
-            </select>
-
-
-            <br>
-
-
-            <!-- AVISO RGPD -->
-
-            <p style="text-align: justify; font-size:14px;">
-
-                <strong>Aviso de Protección de Datos:</strong>
-
-                <br><br>
-
-                Los datos personales facilitados serán tratados por las empresas integrantes del Grupo Valls Companys, de conformidad con el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD), con la finalidad de gestionar los procesos de contratación, acogida y formación inicial del personal. Los datos no serán utilizados para fines distintos de los aquí indicados.
-
-            </p>
-
-
-            <label>
-
-                <input type="checkbox" id="aceptaRGPD">
-
-                He leído y acepto el tratamiento de mis datos personales.
-
-            </label>
-
-            <br><br>
-
-
-            <button id="btnIniciar" onclick="iniciarVideo()" disabled>
-
-                Comenzar formación
-
-            </button>
-
-        </div>
-
-
-        <!-- VÍDEO -->
-
-        <div id="videoSection">
-
-            <h2>Vídeo de bienvenida</h2>
-
-            <video id="video" controls width="100%">
-
-                <source src="video.mp4" type="video/mp4">
-
-                Tu navegador no soporta vídeo HTML5.
-
-            </video>
-
-
-            <br><br>
-
-
-            <label>
-
-                <input type="checkbox" id="aceptaVideo" disabled>
-
-                Declaro haber visualizado íntegramente el vídeo de formación.
-
-            </label>
-
-
-            <br><br>
-
-
-            <button id="btnTest" onclick="mostrarTest()" disabled>
-
-                Realizar test
-
-            </button>
-
-        </div>
-
-
-        <!-- TEST -->
-
-        <div id="testSection" style="display:none;">
-
-            <h2>Test final</h2>
-
-
-            <p>1. ¿Cuál es el objetivo principal de esta formación?</p>
-
-            <input type="radio" name="p1">
-            Conocer la empresa y sus normas<br>
-
-            <input type="radio" name="p1">
-            Saltarse los procedimientos<br><br>
-
-
-
-            <p>2. ¿Debe cumplirse la normativa de seguridad?</p>
-
-            <input type="radio" name="p2">
-            Sí<br>
-
-            <input type="radio" name="p2">
-            No<br><br>
-
-
-
-            <p>3. ¿Es obligatorio visualizar el vídeo completo?</p>
-
-            <input type="radio" name="p3">
-            Sí<br>
-
-            <input type="radio" name="p3">
-            No<br><br>
-
-
-
-            <p>4. ¿Qué debe hacerse ante una incidencia?</p>
-
-            <input type="radio" name="p4">
-            Comunicarla<br>
-
-            <input type="radio" name="p4">
-            Ignorarla<br><br>
-
-
-
-            <p>5. ¿Quién debe cumplir las normas internas?</p>
-
-            <input type="radio" name="p5">
-            Todo el personal<br>
-
-            <input type="radio" name="p5">
-            Solo los responsables<br><br>
-
-
-            <button onclick="finalizar()">
-
-                Enviar test
-
-            </button>
-
-        </div>
+        </button>
 
     </div>
 
-    <script src="script.js"></script>
+
+
+    <!-- VÍDEO -->
+
+    <div id="videoSection">
+
+        <h2>Vídeo de bienvenida</h2>
+
+        <video id="video" controls width="100%">
+
+            <source src="video.mp4" type="video/mp4">
+
+            Tu navegador no soporta vídeo HTML5.
+
+        </video>
+
+
+        <br><br>
+
+
+        <label>
+
+            <input type="checkbox"
+                   id="aceptaVideo"
+                   disabled>
+
+            Declaro haber visualizado íntegramente el vídeo de formación.
+
+        </label>
+
+
+        <br><br>
+
+
+        <button id="btnTest"
+                onclick="mostrarTest()"
+                disabled>
+
+            Realizar test
+
+        </button>
+
+    </div>
+
+
+
+
+    <!-- TEST -->
+
+    <div id="testSection" style="display:none;">
+
+        <h2>Test final</h2>
+
+
+        <p>1. ¿Cuál es el objetivo principal de esta formación?</p>
+
+        <input type="radio" name="p1">
+        Conocer la empresa y sus normas<br>
+
+        <input type="radio" name="p1">
+        Saltarse los procedimientos<br><br>
+
+
+
+        <p>2. ¿Debe cumplirse la normativa de seguridad?</p>
+
+        <input type="radio" name="p2">
+        Sí<br>
+
+        <input type="radio" name="p2">
+        No<br><br>
+
+
+
+        <p>3. ¿Es obligatorio visualizar el vídeo completo?</p>
+
+        <input type="radio" name="p3">
+        Sí<br>
+
+        <input type="radio" name="p3">
+        No<br><br>
+
+
+
+        <p>4. ¿Qué debe hacerse ante una incidencia?</p>
+
+        <input type="radio" name="p4">
+        Comunicarla<br>
+
+        <input type="radio" name="p4">
+        Ignorarla<br><br>
+
+
+
+        <p>5. ¿Quién debe cumplir las normas internas?</p>
+
+        <input type="radio" name="p5">
+        Todo el personal<br>
+
+        <input type="radio" name="p5">
+        Solo los responsables<br><br>
+
+
+        <button onclick="finalizar()">
+
+            Enviar test
+
+        </button>
+
+    </div>
+
+
+
+    <!-- FIRMA DIGITAL -->
+
+    <div id="firmaSection" style="display:none;">
+
+        <h2>Firma digital</h2>
+
+        <p>
+            Por favor, firme en el siguiente recuadro.
+        </p>
+
+
+        <canvas id="signature-pad"></canvas>
+
+
+        <br><br>
+
+
+        <button id="btnBorrarFirma">
+
+            Borrar firma
+
+        </button>
+
+        <br><br>
+
+
+        <button id="btnFinalizarFirma">
+
+            Finalizar formación
+
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- LIBRERÍA SIGNATURE PAD -->
+
+<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.7/dist/signature_pad.umd.min.js"></script>
+
+<script src="script.js"></script>
 
 </body>
-
 </html>
