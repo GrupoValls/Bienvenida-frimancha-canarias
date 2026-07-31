@@ -17,6 +17,12 @@
 
         <h1>Bienvenido a Frimancha Canarias</h1>
 
+        <p class="descripcion">
+            Por favor, rellene todos los campos obligatorios, visualice íntegramente
+            el vídeo de bienvenida y complete correctamente el test final de 5
+            preguntas para finalizar el proceso de acogida.
+        </p>
+
 
         <!-- REGISTRO -->
 
@@ -29,11 +35,15 @@
             <input type="text" id="dni" placeholder="DNI / NIE">
 
 
-            <label for="fechaNacimiento">
-                Fecha de nacimiento
-            </label>
+            <!-- FECHA DE NACIMIENTO -->
 
-            <input type="date" id="fechaNacimiento">
+            <div class="campoIntegrado">
+
+                <span>Fecha de nacimiento</span>
+
+                <input type="date" id="fechaNacimiento">
+
+            </div>
 
 
             <input type="tel" id="telefono" placeholder="Teléfono móvil">
@@ -43,63 +53,81 @@
             <input type="text" id="direccion" placeholder="Dirección personal">
 
 
-            <!-- TALLA CALZADO -->
+            <!-- TALLA DE CALZADO -->
 
-            <select id="tallaCalzado">
-                <option value="">Talla de calzado</option>
-                <option>35</option>
-                <option>36</option>
-                <option>37</option>
-                <option>38</option>
-                <option>39</option>
-                <option>40</option>
-                <option>41</option>
-                <option>42</option>
-                <option>43</option>
-                <option>44</option>
-                <option>45</option>
-                <option>46</option>
-                <option>47</option>
-                <option>48</option>
-            </select>
+            <div class="campoIntegrado">
 
+                <span>Talla de calzado</span>
 
-            <!-- TALLA PANTALÓN -->
+                <select id="tallaCalzado">
+                    <option value=""></option>
+                    <option>35</option>
+                    <option>36</option>
+                    <option>37</option>
+                    <option>38</option>
+                    <option>39</option>
+                    <option>40</option>
+                    <option>41</option>
+                    <option>42</option>
+                    <option>43</option>
+                    <option>44</option>
+                    <option>45</option>
+                    <option>46</option>
+                    <option>47</option>
+                    <option>48</option>
+                </select>
 
-            <select id="tallaPantalon">
-                <option value="">Talla de pantalón</option>
-                <option>XS</option>
-                <option>S</option>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
-                <option>XXL</option>
-                <option>XXXL</option>
-                <option>4XL</option>
-            </select>
+            </div>
 
 
-            <!-- TALLA CAMISA -->
+            <!-- TALLA DE PANTALÓN -->
 
-            <select id="tallaCamisa">
-                <option value="">Talla de camisa</option>
-                <option>XS</option>
-                <option>S</option>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
-                <option>XXL</option>
-                <option>XXXL</option>
-                <option>4XL</option>
-            </select>
+            <div class="campoIntegrado">
+
+                <span>Talla de pantalón</span>
+
+                <select id="tallaPantalon">
+                    <option value=""></option>
+                    <option>XS</option>
+                    <option>S</option>
+                    <option>M</option>
+                    <option>L</option>
+                    <option>XL</option>
+                    <option>XXL</option>
+                    <option>XXXL</option>
+                    <option>4XL</option>
+                </select>
+
+            </div>
 
 
-            <br><br>
+            <!-- TALLA DE CAMISA -->
+
+            <div class="campoIntegrado">
+
+                <span>Talla de camisa</span>
+
+                <select id="tallaCamisa">
+                    <option value=""></option>
+                    <option>XS</option>
+                    <option>S</option>
+                    <option>M</option>
+                    <option>L</option>
+                    <option>XL</option>
+                    <option>XXL</option>
+                    <option>XXXL</option>
+                    <option>4XL</option>
+                </select>
+
+            </div>
+
+
+            <br>
 
 
             <!-- RGPD -->
 
-            <p style="text-align: justify; font-size: 14px;">
+            <p style="text-align:justify; font-size:14px;">
 
                 <strong>Aviso de Protección de Datos:</strong><br><br>
 
@@ -124,8 +152,7 @@
         </div>
 
 
-
-        <!-- VIDEO -->
+        <!-- VÍDEO -->
 
         <div id="videoSection">
 
@@ -156,7 +183,6 @@
         </div>
 
 
-
         <!-- TEST -->
 
         <div id="testSection" style="display:none;">
@@ -172,7 +198,6 @@
             Saltarse los procedimientos<br><br>
 
 
-
             <p>2. ¿Debe cumplirse la normativa de seguridad?</p>
 
             <input type="radio" name="p2">
@@ -180,7 +205,6 @@
 
             <input type="radio" name="p2">
             No<br><br>
-
 
 
             <p>3. ¿Es obligatorio visualizar el vídeo completo?</p>
@@ -192,7 +216,6 @@
             No<br><br>
 
 
-
             <p>4. ¿Qué debe hacerse ante una incidencia?</p>
 
             <input type="radio" name="p4">
@@ -202,7 +225,6 @@
             Ignorarla<br><br>
 
 
-
             <p>5. ¿Quién debe cumplir las normas internas?</p>
 
             <input type="radio" name="p5">
@@ -210,7 +232,6 @@
 
             <input type="radio" name="p5">
             Solo los responsables<br><br>
-
 
 
             <button onclick="finalizar()">
