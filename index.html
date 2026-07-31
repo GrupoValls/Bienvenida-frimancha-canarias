@@ -17,6 +17,7 @@
 
         <h1>Bienvenido a Frimancha Canarias</h1>
 
+
         <!-- REGISTRO -->
 
         <div id="registro">
@@ -27,7 +28,13 @@
 
             <input type="text" id="dni" placeholder="DNI / NIE">
 
+
+            <label for="fechaNacimiento">
+                Fecha de nacimiento
+            </label>
+
             <input type="date" id="fechaNacimiento">
+
 
             <input type="tel" id="telefono" placeholder="Teléfono móvil">
 
@@ -35,29 +42,80 @@
 
             <input type="text" id="direccion" placeholder="Dirección personal">
 
-            <input type="number" id="tallaCalzado" placeholder="Talla de calzado">
 
-            <input type="number" id="tallaPantalon" placeholder="Talla de pantalón">
+            <!-- TALLA CALZADO -->
 
-            <input type="number" id="tallaCamisa" placeholder="Talla de camisa">
+            <select id="tallaCalzado">
+                <option value="">Talla de calzado</option>
+                <option>35</option>
+                <option>36</option>
+                <option>37</option>
+                <option>38</option>
+                <option>39</option>
+                <option>40</option>
+                <option>41</option>
+                <option>42</option>
+                <option>43</option>
+                <option>44</option>
+                <option>45</option>
+                <option>46</option>
+                <option>47</option>
+                <option>48</option>
+            </select>
+
+
+            <!-- TALLA PANTALÓN -->
+
+            <select id="tallaPantalon">
+                <option value="">Talla de pantalón</option>
+                <option>XS</option>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+                <option>XXL</option>
+                <option>XXXL</option>
+                <option>4XL</option>
+            </select>
+
+
+            <!-- TALLA CAMISA -->
+
+            <select id="tallaCamisa">
+                <option value="">Talla de camisa</option>
+                <option>XS</option>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+                <option>XXL</option>
+                <option>XXXL</option>
+                <option>4XL</option>
+            </select>
 
 
             <br><br>
 
-            <p style="text-align:justify; font-size:14px;">
 
-                <strong>Aviso de Protección de Datos:</strong><br>
+            <!-- RGPD -->
+
+            <p style="text-align: justify; font-size: 14px;">
+
+                <strong>Aviso de Protección de Datos:</strong><br><br>
 
                 Los datos personales facilitados serán tratados por las empresas integrantes del Grupo Valls Companys, de conformidad con el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD), con la finalidad de gestionar los procesos de contratación, acogida y formación inicial del personal. Los datos no serán utilizados para fines distintos de los aquí indicados.
 
             </p>
+
 
             <label>
                 <input type="checkbox" id="aceptaRGPD">
                 He leído y acepto el tratamiento de mis datos personales.
             </label>
 
+
             <br><br>
+
 
             <button id="btnIniciar" onclick="iniciarVideo()" disabled>
                 Comenzar formación
@@ -66,31 +124,37 @@
         </div>
 
 
+
         <!-- VIDEO -->
 
         <div id="videoSection">
 
             <h2>Vídeo de bienvenida</h2>
 
-            <video id="video" width="100%">
+            <video id="video" controls width="100%">
                 <source src="video.mp4" type="video/mp4">
                 Tu navegador no soporta vídeo HTML5.
             </video>
 
+
             <br><br>
+
 
             <label>
                 <input type="checkbox" id="aceptaVideo" disabled>
                 Declaro haber visualizado íntegramente el vídeo de formación.
             </label>
 
+
             <br><br>
+
 
             <button id="btnTest" onclick="mostrarTest()" disabled>
                 Realizar test
             </button>
 
         </div>
+
 
 
         <!-- TEST -->
@@ -108,6 +172,7 @@
             Saltarse los procedimientos<br><br>
 
 
+
             <p>2. ¿Debe cumplirse la normativa de seguridad?</p>
 
             <input type="radio" name="p2">
@@ -115,6 +180,7 @@
 
             <input type="radio" name="p2">
             No<br><br>
+
 
 
             <p>3. ¿Es obligatorio visualizar el vídeo completo?</p>
@@ -126,6 +192,7 @@
             No<br><br>
 
 
+
             <p>4. ¿Qué debe hacerse ante una incidencia?</p>
 
             <input type="radio" name="p4">
@@ -135,6 +202,7 @@
             Ignorarla<br><br>
 
 
+
             <p>5. ¿Quién debe cumplir las normas internas?</p>
 
             <input type="radio" name="p5">
@@ -142,6 +210,7 @@
 
             <input type="radio" name="p5">
             Solo los responsables<br><br>
+
 
 
             <button onclick="finalizar()">
