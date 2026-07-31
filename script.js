@@ -359,6 +359,8 @@ btnBorrarFirma.addEventListener("click", function () {
 
 btnAceptarFirma.addEventListener("click", function () {
 
+    alert("Botón aceptar pulsado");
+
 
     if (signaturePad.isEmpty()) {
 
