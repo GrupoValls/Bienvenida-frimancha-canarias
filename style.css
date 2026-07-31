@@ -1,8 +1,12 @@
+/*--------------------------------------------------
+GENERAL
+--------------------------------------------------*/
+
 body{
     margin:0;
     padding:0;
     background:#f4f6f8;
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 .container{
@@ -12,14 +16,26 @@ body{
     text-align:center;
 }
 
+/*--------------------------------------------------
+LOGO
+--------------------------------------------------*/
+
 .logo{
     width:220px;
     margin-bottom:20px;
 }
 
+/*--------------------------------------------------
+TEXTOS
+--------------------------------------------------*/
+
 h1{
     color:#333;
     margin-bottom:15px;
+}
+
+h2{
+    color:#333;
 }
 
 .descripcion{
@@ -31,6 +47,10 @@ h1{
     color:#555;
 }
 
+/*--------------------------------------------------
+FORMULARIO
+--------------------------------------------------*/
+
 input,
 select{
     width:100%;
@@ -38,12 +58,11 @@ select{
     padding:14px;
     margin:10px auto;
     display:block;
-
     border:1px solid #ccc;
     border-radius:8px;
-
     font-size:16px;
     box-sizing:border-box;
+    background:#fff;
 }
 
 input[type="checkbox"]{
@@ -59,170 +78,153 @@ input[type="radio"]{
 }
 
 label{
-    display:inline-block;
     line-height:1.6;
-    margin-top:10px;
 }
 
+/*--------------------------------------------------
+BOTONES
+--------------------------------------------------*/
+
 button{
-
     background:#f47c20;
-    color:white;
+    color:#fff;
     border:none;
-
     padding:14px 30px;
-
     border-radius:8px;
-
     font-size:16px;
-
     cursor:pointer;
-
-    transition:.25s;
-
+    transition:0.25s;
+    margin:5px;
 }
 
 button:hover{
-
     background:#d96a14;
-
 }
 
 button:disabled{
-
     background:#999;
     cursor:not-allowed;
+}
 
+/*--------------------------------------------------
+VIDEO
+--------------------------------------------------*/
+
+#videoSection{
+    margin-top:30px;
 }
 
 video{
-
     width:100%;
     max-width:800px;
-
     border-radius:12px;
-
     margin-top:20px;
-
 }
 
+/*--------------------------------------------------
+TEST
+--------------------------------------------------*/
+
 #testSection{
-
-    text-align:left;
     margin-top:40px;
-
+    text-align:left;
+    max-width:800px;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 #testSection h2{
-
     text-align:center;
-
 }
 
 #testSection p{
-
     font-weight:bold;
-    margin-top:28px;
-
+    margin-top:30px;
+    margin-bottom:10px;
 }
 
-/************************************************/
-/* FIRMA */
-/************************************************/
+/*--------------------------------------------------
+FIRMA DIGITAL
+--------------------------------------------------*/
 
 #firmaSection{
-
     margin-top:50px;
-
+    text-align:center;
 }
 
 #signature-pad{
-
     width:100%;
     max-width:800px;
     height:250px;
-
     display:block;
-    margin:auto;
-
-    background:#ececec;
-
+    margin:20px auto;
+    background:#ffffff;
     border:3px solid #888;
-
     border-radius:12px;
-
-    touch-action:none;
-
     cursor:crosshair;
-
+    touch-action:none;
     box-sizing:border-box;
-
 }
 
-/************************************************/
-/* PANTALLA FINAL */
-/************************************************/
+/*--------------------------------------------------
+PANTALLA FINAL
+--------------------------------------------------*/
 
 #pantallaFinal{
-
     display:none;
-
-    height:100vh;
-
+    min-height:100vh;
     justify-content:center;
-
     align-items:center;
-
     flex-direction:column;
-
     text-align:center;
-
+    padding:40px;
+    box-sizing:border-box;
 }
 
 #pantallaFinal h1{
-
     font-size:64px;
-
     color:#f47c20;
-
+    margin-bottom:20px;
 }
 
 #pantallaFinal p{
-
     font-size:20px;
-
+    color:#555;
+    max-width:700px;
 }
 
-@media(max-width:768px){
+/*--------------------------------------------------
+RESPONSIVE
+--------------------------------------------------*/
 
-.container{
+@media (max-width:768px){
 
-padding:20px;
+    .container{
+        padding:20px;
+    }
 
-}
+    .logo{
+        width:180px;
+    }
 
-.logo{
+    .descripcion{
+        font-size:15px;
+    }
 
-width:180px;
+    button{
+        width:100%;
+        max-width:400px;
+    }
 
-}
+    #signature-pad{
+        height:220px;
+    }
 
-.descripcion{
+    #pantallaFinal h1{
+        font-size:42px;
+    }
 
-font-size:15px;
-
-}
-
-button{
-
-width:100%;
-
-}
-
-#signature-pad{
-
-height:220px;
-
-}
-
+    #pantallaFinal p{
+        font-size:18px;
+    }
 }
