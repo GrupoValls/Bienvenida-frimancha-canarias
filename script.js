@@ -365,12 +365,30 @@ btnFinalizarFirma.addEventListener("click", function () {
     }
 
 
-    alert(
+   document.body.innerHTML = `
 
-        "FORMACIÓN FINALIZADA CORRECTAMENTE.\n\n" +
+<div style="
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Arial, sans-serif;
+    text-align:center;
+    padding:30px;
+">
 
-        "GRACIAS POR COMPLETAR EL PROCESO DE ACOGIDA DE FRIMANCHA CANARIAS."
+    <div>
 
-    );
+        <h1>¡GRACIAS!</h1>
 
-});
+        <h2>Formación finalizada correctamente.</h2>
+
+        <p>
+            El proceso de acogida ha sido completado con éxito.
+        </p>
+
+    </div>
+
+</div>
+
+`;
