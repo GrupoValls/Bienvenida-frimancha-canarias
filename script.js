@@ -330,35 +330,33 @@ function finalizar() {
 
 function inicializarFirma() {
 
-    btnBorrarFirma.addEventListener("click", function () {
-
-    signaturePad.clear();
-
-    // Eliminamos la firma anterior si existe
-
+    // Si ya existe una firma anterior la eliminamos
     if (signaturePad) {
-
         signaturePad.off();
-
     }
 
+    // Ajustamos el canvas al tamaño visible
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
 
-    // Obtenemos el tamaño REAL que tiene el canvas en pantalla
-
-    const rect = canvas.getBoundingClientRect();
-
-
-    // Ajustamos el tamaño interno del canvas
-
-    canvas.width = rect.width;
-    canvas.height = rect.height;
-
-
-    // Creamos la zona de firma
-
+    // Creamos la firma
     signaturePad = new SignaturePad(canvas);
 
 }
+
+
+//---------------------------------------------
+// BORRAR FIRMA
+//---------------------------------------------
+
+btnBorrarFirma.addEventListener("click", function () {
+
+    if (signaturePad) {
+        signaturePad.clear();
+    }
+
+});
+
 
 //---------------------------------------------
 // FINALIZAR FORMACIÓN
@@ -366,7 +364,7 @@ function inicializarFirma() {
 
 btnAceptarFirma.addEventListener("click", function () {
 
-    if (signaturePad.isEmpty()) {
+    if (!signaturePad || signaturePad.isEmpty()) {
 
         alert(
             "DEBE REALIZAR SU FIRMA DIGITAL PARA FINALIZAR LA FORMACIÓN."
@@ -387,11 +385,17 @@ btnAceptarFirma.addEventListener("click", function () {
             text-align:center;
             font-family:Arial;
             padding:40px;
+            background:#f4f6f8;
         ">
 
-            <img src="logo.png" style="width:250px; margin-bottom:30px;">
+            <img src="logo.png"
+                 style="width:250px;margin-bottom:30px;">
 
-            <h1 style="font-size:60px;">
+            <h1 style="
+                font-size:60px;
+                color:#f47c20;
+                margin-bottom:20px;
+            ">
                 ¡GRACIAS!
             </h1>
 
@@ -400,7 +404,8 @@ btnAceptarFirma.addEventListener("click", function () {
             </h2>
 
             <p>
-                Gracias por completar el proceso de acogida de Frimancha Canarias.
+                Gracias por completar el proceso de acogida de
+                Frimancha Canarias.
             </p>
 
         </div>
@@ -408,5 +413,3 @@ btnAceptarFirma.addEventListener("click", function () {
     `;
 
 });
-
-
