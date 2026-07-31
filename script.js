@@ -1,159 +1,290 @@
-<!DOCTYPE html>
-<html lang="es">
+//---------------------------------------------
+// CAMPOS DEL FORMULARIO
+//---------------------------------------------
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenida Frimancha Canarias</title>
+const nombre = document.getElementById("nombre");
+const apellidos = document.getElementById("apellidos");
+const dni = document.getElementById("dni");
+const fechaNacimiento = document.getElementById("fechaNacimiento");
+const telefono = document.getElementById("telefono");
+const email = document.getElementById("email");
+const direccion = document.getElementById("direccion");
 
-    <link rel="stylesheet" href="style.css">
-</head>
+const tallaCalzado = document.getElementById("tallaCalzado");
+const tallaPantalon = document.getElementById("tallaPantalon");
+const tallaCamisa = document.getElementById("tallaCamisa");
 
-<body>
+const aceptaRGPD = document.getElementById("aceptaRGPD");
+const aceptaVideo = document.getElementById("aceptaVideo");
 
-    <div class="container">
 
-        <img src="logo.png" alt="Logo Frimancha Canarias" class="logo">
+//---------------------------------------------
+// BOTONES
+//---------------------------------------------
 
-        <h1>Bienvenido a Frimancha Canarias</h1>
+const btnIniciar = document.getElementById("btnIniciar");
+const btnTest = document.getElementById("btnTest");
 
-        <!-- REGISTRO -->
 
-        <div id="registro">
+//---------------------------------------------
+// SECCIONES
+//---------------------------------------------
 
-            <input type="text" id="nombre" placeholder="Nombre">
+const videoSection = document.getElementById("videoSection");
+const testSection = document.getElementById("testSection");
+const registro = document.getElementById("registro");
 
-            <input type="text" id="apellidos" placeholder="Apellidos">
 
-            <input type="text" id="dni" placeholder="DNI / NIE">
+//---------------------------------------------
+// VÍDEO
+//---------------------------------------------
 
-            <input type="date" id="fechaNacimiento">
+const video = document.getElementById("video");
 
-            <input type="tel" id="telefono" placeholder="Teléfono móvil">
 
-            <input type="email" id="email" placeholder="Correo electrónico">
+//---------------------------------------------
+// CONFIGURACIÓN INICIAL
+//---------------------------------------------
 
-            <input type="text" id="direccion" placeholder="Dirección personal">
+videoSection.style.display = "none";
+testSection.style.display = "none";
 
-            <input type="number" id="tallaCalzado" placeholder="Talla de calzado">
+btnIniciar.disabled = true;
+btnTest.disabled = true;
 
-            <input type="number" id="tallaPantalon" placeholder="Talla de pantalón">
+aceptaVideo.disabled = true;
 
-            <input type="number" id="tallaCamisa" placeholder="Talla de camisa">
 
+//---------------------------------------------
+// VALIDACIÓN DEL FORMULARIO
+//---------------------------------------------
 
-            <br><br>
+function validarFormulario() {
 
-            <p style="text-align:justify; font-size:14px;">
+    const formularioCompleto =
 
-                <strong>Aviso de Protección de Datos:</strong><br>
+        nombre.value.trim() !== "" &&
+        apellidos.value.trim() !== "" &&
+        dni.value.trim() !== "" &&
+        fechaNacimiento.value !== "" &&
+        telefono.value.trim() !== "" &&
+        email.value.trim() !== "" &&
+        direccion.value.trim() !== "" &&
+        tallaCalzado.value !== "" &&
+        tallaPantalon.value !== "" &&
+        tallaCamisa.value !== "" &&
+        aceptaRGPD.checked;
 
-                Los datos personales facilitados serán tratados por las empresas integrantes del Grupo Valls Companys, de conformidad con el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD), con la finalidad de gestionar los procesos de contratación, acogida y formación inicial del personal. Los datos no serán utilizados para fines distintos de los aquí indicados.
 
-            </p>
+    btnIniciar.disabled = !formularioCompleto;
+}
 
-            <label>
-                <input type="checkbox" id="aceptaRGPD">
-                He leído y acepto el tratamiento de mis datos personales.
-            </label>
 
-            <br><br>
+//---------------------------------------------
+// EVENTOS DEL FORMULARIO
+//---------------------------------------------
 
-            <button id="btnIniciar" onclick="iniciarVideo()" disabled>
-                Comenzar formación
-            </button>
+nombre.addEventListener("input", validarFormulario);
+apellidos.addEventListener("input", validarFormulario);
+dni.addEventListener("input", validarFormulario);
+fechaNacimiento.addEventListener("input", validarFormulario);
+telefono.addEventListener("input", validarFormulario);
+email.addEventListener("input", validarFormulario);
+direccion.addEventListener("input", validarFormulario);
 
-        </div>
+// DESPLEGABLES
 
+tallaCalzado.addEventListener("change", validarFormulario);
+tallaPantalon.addEventListener("change", validarFormulario);
+tallaCamisa.addEventListener("change", validarFormulario);
 
-        <!-- VIDEO -->
+// CHECK RGPD
 
-        <div id="videoSection">
+aceptaRGPD.addEventListener("change", validarFormulario);
 
-            <h2>Vídeo de bienvenida</h2>
 
-            <video id="video" width="100%">
-                <source src="video.mp4" type="video/mp4">
-                Tu navegador no soporta vídeo HTML5.
-            </video>
+//---------------------------------------------
+// INICIAR FORMACIÓN
+//---------------------------------------------
 
-            <br><br>
+function iniciarVideo() {
 
-            <label>
-                <input type="checkbox" id="aceptaVideo" disabled>
-                Declaro haber visualizado íntegramente el vídeo de formación.
-            </label>
+    if (btnIniciar.disabled) {
+        return;
+    }
 
-            <br><br>
+    registro.style.display = "none";
 
-            <button id="btnTest" onclick="mostrarTest()" disabled>
-                Realizar test
-            </button>
+    videoSection.style.display = "block";
 
-        </div>
+    video.currentTime = 0;
 
+    video.play();
 
-        <!-- TEST -->
+}
 
-        <div id="testSection" style="display:none;">
 
-            <h2>Test final</h2>
+//---------------------------------------------
+// CONTROL DEL VÍDEO
+//---------------------------------------------
 
-            <p>1. ¿Cuál es el objetivo principal de esta formación?</p>
+let tiempoMaximoVisto = 0;
+let testActivado = false;
+let ultimaPosicionValida = 0;
 
-            <input type="radio" name="p1">
-            Conocer la empresa y sus normas<br>
 
-            <input type="radio" name="p1">
-            Saltarse los procedimientos<br><br>
+video.addEventListener("timeupdate", function () {
 
+    if (!video.seeking) {
 
-            <p>2. ¿Debe cumplirse la normativa de seguridad?</p>
+        ultimaPosicionValida = video.currentTime;
 
-            <input type="radio" name="p2">
-            Sí<br>
+        if (video.currentTime > tiempoMaximoVisto) {
 
-            <input type="radio" name="p2">
-            No<br><br>
+            tiempoMaximoVisto = video.currentTime;
+        }
+    }
 
 
-            <p>3. ¿Es obligatorio visualizar el vídeo completo?</p>
+    // VÍDEO COMPLETADO
 
-            <input type="radio" name="p3">
-            Sí<br>
+    if (
+        !testActivado &&
+        video.duration > 0 &&
+        tiempoMaximoVisto >= (video.duration - 1)
+    ) {
 
-            <input type="radio" name="p3">
-            No<br><br>
+        testActivado = true;
 
+        aceptaVideo.disabled = false;
 
-            <p>4. ¿Qué debe hacerse ante una incidencia?</p>
+        alert(
+            "Vídeo completado.\n\n" +
+            "Marque la casilla para continuar con el test."
+        );
 
-            <input type="radio" name="p4">
-            Comunicarla<br>
+    }
 
-            <input type="radio" name="p4">
-            Ignorarla<br><br>
+});
 
 
-            <p>5. ¿Quién debe cumplir las normas internas?</p>
+//---------------------------------------------
+// IMPEDIR ADELANTAR EL VÍDEO
+//---------------------------------------------
 
-            <input type="radio" name="p5">
-            Todo el personal<br>
+video.addEventListener("seeking", function () {
 
-            <input type="radio" name="p5">
-            Solo los responsables<br><br>
+    if (video.currentTime > tiempoMaximoVisto + 1) {
 
+        alert(
+            "Debe visualizar el vídeo completo.\n\n" +
+            "No se permite adelantar el vídeo."
+        );
 
-            <button onclick="finalizar()">
-                Enviar test
-            </button>
+        video.currentTime = ultimaPosicionValida;
 
-        </div>
+    }
 
-    </div>
+});
 
-    <script src="script.js"></script>
 
-</body>
+//---------------------------------------------
+// CHECK DEL VÍDEO
+//---------------------------------------------
 
-</html>
+aceptaVideo.addEventListener("change", function () {
+
+    if (testActivado && aceptaVideo.checked) {
+
+        btnTest.disabled = false;
+
+    } else {
+
+        btnTest.disabled = true;
+
+    }
+
+});
+
+
+//---------------------------------------------
+// MOSTRAR TEST
+//---------------------------------------------
+
+function mostrarTest() {
+
+    if (btnTest.disabled) {
+
+        alert(
+            "Debe visualizar el vídeo completo y aceptar la declaración antes de realizar el test."
+        );
+
+        return;
+    }
+
+    testSection.style.display = "block";
+
+}
+
+
+//---------------------------------------------
+// FINALIZAR TEST
+//---------------------------------------------
+
+function finalizar() {
+
+    const p1 = document.querySelector('input[name="p1"]:checked');
+    const p2 = document.querySelector('input[name="p2"]:checked');
+    const p3 = document.querySelector('input[name="p3"]:checked');
+    const p4 = document.querySelector('input[name="p4"]:checked');
+    const p5 = document.querySelector('input[name="p5"]:checked');
+
+
+    // COMPROBAR QUE SE HAN RESPONDIDO TODAS
+
+    if (!p1 || !p2 || !p3 || !p4 || !p5) {
+
+        alert("Debe responder las 5 preguntas.");
+
+        return;
+    }
+
+
+    let errores = 0;
+
+
+    // RESPUESTAS CORRECTAS
+
+    if (p1 !== document.querySelectorAll('input[name="p1"]')[0]) errores++;
+    if (p2 !== document.querySelectorAll('input[name="p2"]')[1]) errores++;
+    if (p3 !== document.querySelectorAll('input[name="p3"]')[0]) errores++;
+    if (p4 !== document.querySelectorAll('input[name="p4"]')[0]) errores++;
+    if (p5 !== document.querySelectorAll('input[name="p5"]')[1]) errores++;
+
+
+    // TEST NO SUPERADO
+
+    if (errores > 0) {
+
+        alert(
+            "Test no superado.\n\n" +
+            "Tiene " + errores + " pregunta(s) incorrecta(s).\n\n" +
+            "Debe volver a realizar el test."
+        );
+
+        document
+            .querySelectorAll('input[type="radio"]')
+            .forEach(radio => radio.checked = false);
+
+        return;
+    }
+
+
+    // FORMACIÓN COMPLETADA
+
+    alert(
+        "¡Enhorabuena!\n\n" +
+        "Ha completado correctamente la formación de bienvenida de Frimancha Canarias."
+    );
+
+}
