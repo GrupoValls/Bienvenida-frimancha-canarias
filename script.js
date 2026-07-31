@@ -40,7 +40,18 @@ const video = document.getElementById("video");
 const videoSection = document.getElementById("videoSection");
 const testSection = document.getElementById("testSection");
 const registro = document.getElementById("registro");
+//---------------------------------------------
+// FIRMA DIGITAL
+//---------------------------------------------
 
+const firmaSection = document.getElementById("firmaSection");
+
+const canvas = document.getElementById("signature-pad");
+
+const btnBorrarFirma = document.getElementById("btnBorrarFirma");
+const btnFinalizarFirma = document.getElementById("btnFinalizarFirma");
+
+let signaturePad;
 
 //---------------------------------------------
 // CONFIGURACIÓN INICIAL
@@ -48,6 +59,7 @@ const registro = document.getElementById("registro");
 
 videoSection.style.display = "none";
 testSection.style.display = "none";
+firmaSection.style.display = "none";
 
 btnIniciar.disabled = true;
 btnTest.disabled = true;
@@ -273,11 +285,82 @@ function finalizar() {
     }
 
 
-    // FORMACIÓN COMPLETADA
+    //---------------------------------------------
+// TEST SUPERADO
+//---------------------------------------------
 
-    alert(
-        "¡Enhorabuena!\n\n" +
-        "Ha completado correctamente la formación de bienvenida de Frimancha Canarias."
-    );
+alert(
+
+    "¡¡ENHORABUENA!!\n\n" +
+
+    "HA SUPERADO CORRECTAMENTE EL TEST FINAL.\n\n" +
+
+    "POR FAVOR, PROCEDA A REALIZAR SU FIRMA DIGITAL PARA FINALIZAR LA FORMACIÓN."
+
+);
+
+
+firmaSection.style.display = "block";
+
+
+// Inicializamos el recuadro de firma
+
+inicializarFirma();
+
+
+// Bajamos automáticamente hasta la firma
+
+firmaSection.scrollIntoView({
+
+    behavior: "smooth"
 
 }
+);
+//---------------------------------------------
+// INICIALIZAR FIRMA DIGITAL
+//---------------------------------------------
+
+function inicializarFirma() {
+
+    signaturePad = new SignaturePad(canvas);
+
+}
+
+
+//---------------------------------------------
+// BORRAR FIRMA
+//---------------------------------------------
+
+btnBorrarFirma.addEventListener("click", function () {
+
+    signaturePad.clear();
+
+});
+
+
+//---------------------------------------------
+// FINALIZAR FORMACIÓN
+//---------------------------------------------
+
+btnFinalizarFirma.addEventListener("click", function () {
+
+    if (signaturePad.isEmpty()) {
+
+        alert(
+            "DEBE REALIZAR SU FIRMA DIGITAL PARA FINALIZAR LA FORMACIÓN."
+        );
+
+        return;
+
+    }
+
+
+    alert(
+
+        "FORMACIÓN FINALIZADA CORRECTAMENTE.\n\n" +
+
+        "GRACIAS POR COMPLETAR EL PROCESO DE ACOGIDA DE FRIMANCHA CANARIAS."
+
+    );
+
+});
