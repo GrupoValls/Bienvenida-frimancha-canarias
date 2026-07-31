@@ -220,29 +220,43 @@ label {
 
     }
 } 
-/*-------------------------------------------------
+/************************************************
 FIRMA DIGITAL
--------------------------------------------------*/
+************************************************/
 
-#firmaSection{
+#firmaSection {
 
-    margin-top:40px;
-    text-align:center;
+    margin-top: 40px;
+    text-align: center;
 
 }
 
- #signature-pad{
+#signature-pad {
 
-    width:100%;
-    max-width:500px;
+    width: 100%;
+    max-width: 800px;
+    height: 250px;
 
-    background:#e5e5e5;
-    border:2px dashed #888;
-    border-radius:10px;
+    background: #e5e5e5;
+    border: 2px dashed #888;
+    border-radius: 10px;
 
-    display:block;
-    margin:20px auto;
+    display: block;
+    margin: 20px auto;
 
-    touch-action:none;
+    touch-action: none;
+
+}
+
+
+/* MÓVILES */
+
+@media (max-width:768px) {
+
+    #signature-pad {
+
+        height: 200px;
+
+    }
 
 }
