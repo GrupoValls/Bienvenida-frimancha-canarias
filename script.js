@@ -17,7 +17,6 @@ const tallaCamisa = document.getElementById("tallaCamisa");
 const aceptaRGPD = document.getElementById("aceptaRGPD");
 const aceptaVideo = document.getElementById("aceptaVideo");
 
-
 //---------------------------------------------
 // BOTONES
 //---------------------------------------------
@@ -25,6 +24,8 @@ const aceptaVideo = document.getElementById("aceptaVideo");
 const btnIniciar = document.getElementById("btnIniciar");
 const btnTest = document.getElementById("btnTest");
 
+const btnBorrarFirma = document.getElementById("btnBorrarFirma");
+const btnAceptarFirma = document.getElementById("btnAceptarFirma");
 
 //---------------------------------------------
 // VÍDEO
@@ -32,26 +33,21 @@ const btnTest = document.getElementById("btnTest");
 
 const video = document.getElementById("video");
 
-
 //---------------------------------------------
 // SECCIONES
 //---------------------------------------------
 
+const registro = document.getElementById("registro");
 const videoSection = document.getElementById("videoSection");
 const testSection = document.getElementById("testSection");
-const registro = document.getElementById("registro");
-//---------------------------------------------
-// FIRMA DIGITAL
-//---------------------------------------------
-
 const firmaSection = document.getElementById("firmaSection");
+const pantallaFinal = document.getElementById("pantallaFinal");
+
+//---------------------------------------------
+// FIRMA
+//---------------------------------------------
 
 const canvas = document.getElementById("signature-pad");
-
-const btnBorrarFirma =
-document.getElementById("btnBorrarFirma");
-const btnAceptarFirma =
-document.getElementById("btnAceptarFirma");
 
 let signaturePad;
 
@@ -62,179 +58,148 @@ let signaturePad;
 videoSection.style.display = "none";
 testSection.style.display = "none";
 firmaSection.style.display = "none";
+pantallaFinal.style.display = "none";
 
 btnIniciar.disabled = true;
 btnTest.disabled = true;
 
 aceptaVideo.disabled = true;
 
-
 //---------------------------------------------
-// VALIDACIÓN DEL FORMULARIO
+// VALIDACIÓN FORMULARIO
 //---------------------------------------------
 
-function validarFormulario() {
+function validarFormulario(){
 
-    const formularioCompleto =
+    const completo=
 
-        nombre.value.trim() !== "" &&
-        apellidos.value.trim() !== "" &&
-        dni.value.trim() !== "" &&
-        fechaNacimiento.value !== "" &&
-        telefono.value.trim() !== "" &&
-        email.value.trim() !== "" &&
-        direccion.value.trim() !== "" &&
-        tallaCalzado.value !== "" &&
-        tallaPantalon.value !== "" &&
-        tallaCamisa.value !== "" &&
+        nombre.value.trim()!="" &&
+        apellidos.value.trim()!="" &&
+        dni.value.trim()!="" &&
+        fechaNacimiento.value!="" &&
+        telefono.value.trim()!="" &&
+        email.value.trim()!="" &&
+        direccion.value.trim()!="" &&
+        tallaCalzado.value!="" &&
+        tallaPantalon.value!="" &&
+        tallaCamisa.value!="" &&
         aceptaRGPD.checked;
 
+    btnIniciar.disabled=!completo;
 
-    btnIniciar.disabled = !formularioCompleto;
 }
 
+[
+nombre,
+apellidos,
+dni,
+fechaNacimiento,
+telefono,
+email,
+direccion
+].forEach(campo=>campo.addEventListener("input",validarFormulario));
+
+[
+tallaCalzado,
+tallaPantalon,
+tallaCamisa
+].forEach(campo=>campo.addEventListener("change",validarFormulario));
+
+aceptaRGPD.addEventListener("change",validarFormulario);
 
 //---------------------------------------------
-// EVENTOS DEL FORMULARIO
+// INICIAR
 //---------------------------------------------
 
-nombre.addEventListener("input", validarFormulario);
-apellidos.addEventListener("input", validarFormulario);
-dni.addEventListener("input", validarFormulario);
-fechaNacimiento.addEventListener("input", validarFormulario);
-telefono.addEventListener("input", validarFormulario);
-email.addEventListener("input", validarFormulario);
-direccion.addEventListener("input", validarFormulario);
+function iniciarVideo(){
 
-tallaCalzado.addEventListener("change", validarFormulario);
-tallaPantalon.addEventListener("change", validarFormulario);
-tallaCamisa.addEventListener("change", validarFormulario);
+    if(btnIniciar.disabled) return;
 
-aceptaRGPD.addEventListener("change", validarFormulario);
+    registro.style.display="none";
 
+    videoSection.style.display="block";
 
-//---------------------------------------------
-// INICIAR FORMACIÓN
-//---------------------------------------------
-
-function iniciarVideo() {
-
-    if (btnIniciar.disabled) {
-        return;
-    }
-
-    registro.style.display = "none";
-
-    videoSection.style.display = "block";
-
-    video.currentTime = 0;
+    video.currentTime=0;
 
     video.play();
 
 }
 
-
 //---------------------------------------------
-// CONTROL DEL VÍDEO
+// CONTROL VIDEO
 //---------------------------------------------
 
-let tiempoMaximoVisto = 0;
-let testActivado = false;
-let ultimaPosicionValida = 0;
+let tiempoMaximoVisto=0;
+let ultimaPosicionValida=0;
+let testActivado=false;
 
+video.addEventListener("timeupdate",()=>{
 
-video.addEventListener("timeupdate", function () {
+    if(!video.seeking){
 
-    if (!video.seeking) {
+        ultimaPosicionValida=video.currentTime;
 
-        ultimaPosicionValida = video.currentTime;
+        if(video.currentTime>tiempoMaximoVisto){
 
-        if (video.currentTime > tiempoMaximoVisto) {
-            tiempoMaximoVisto = video.currentTime;
+            tiempoMaximoVisto=video.currentTime;
+
         }
+
     }
 
-
-    // VÍDEO COMPLETADO
-
-    if (
+    if(
 
         !testActivado &&
-        video.duration > 0 &&
-        tiempoMaximoVisto >= (video.duration - 1)
+        video.duration>0 &&
+        tiempoMaximoVisto>=video.duration-1
 
-    ) {
+    ){
 
-        testActivado = true;
+        testActivado=true;
 
-        aceptaVideo.disabled = false;
+        aceptaVideo.disabled=false;
 
-        alert(
-            "Vídeo completado.\n\nYa puede marcar la casilla y realizar el test."
-        );
+        alert("Vídeo completado.\n\nYa puede realizar el test.");
 
     }
 
 });
 
+video.addEventListener("seeking",()=>{
 
-//---------------------------------------------
-// ANTI-ADELANTO DEL VÍDEO
-//---------------------------------------------
+    if(video.currentTime>tiempoMaximoVisto+1){
 
-video.addEventListener("seeking", function () {
+        alert("No puede adelantar el vídeo.");
 
-    if (video.currentTime > tiempoMaximoVisto + 1) {
-
-        alert(
-            "Debe visualizar el vídeo completo.\n\nNo se permite adelantar el vídeo."
-        );
-
-        video.currentTime = ultimaPosicionValida;
+        video.currentTime=ultimaPosicionValida;
 
     }
 
 });
 
+aceptaVideo.addEventListener("change",()=>{
 
-//---------------------------------------------
-// CHECK DEL VÍDEO
-//---------------------------------------------
-
-aceptaVideo.addEventListener("change", function () {
-
-    if (testActivado && aceptaVideo.checked) {
-
-        btnTest.disabled = false;
-
-    } else {
-
-        btnTest.disabled = true;
-
-    }
+    btnTest.disabled=!(aceptaVideo.checked && testActivado);
 
 });
-
 
 //---------------------------------------------
 // MOSTRAR TEST
 //---------------------------------------------
 
-function mostrarTest() {
+function mostrarTest(){
 
-    if (btnTest.disabled) {
+    if(btnTest.disabled){
 
-        alert(
-            "Debe visualizar el vídeo completo y aceptar la declaración antes de realizar el test."
-        );
+        alert("Debe completar el vídeo.");
 
         return;
+
     }
 
-    testSection.style.display = "block";
+    testSection.style.display="block";
 
 }
-
 
 //---------------------------------------------
 // FINALIZAR TEST
