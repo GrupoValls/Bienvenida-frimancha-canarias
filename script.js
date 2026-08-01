@@ -359,65 +359,93 @@ btnBorrarFirma.addEventListener("click", function () {
 
 btnAceptarFirma.addEventListener("click", function () {
 
-    // Comprobar que existe una firma
     if (signaturePad.isEmpty()) {
 
         alert("DEBE REALIZAR SU FIRMA DIGITAL PARA FINALIZAR LA FORMACIÓN.");
-
         return;
 
     }
 
-    // Evitar varios clics
+    // Evitar doble envío
     btnAceptarFirma.disabled = true;
     btnAceptarFirma.textContent = "Enviando...";
 
-    // Capturamos la firma
     const firmaBase64 = signaturePad.toDataURL();
 
-    // Enviar datos al Apps Script
-  fetch(
-    "https://script.google.com/macros/s/AKfycbwITL3q603h8X8C-8zPSUzOskNxIs0O3AQQUt4YRWW0ZpomZKJBN_VCWm4DWAdNL6SG/exec",
-    {
-        method: "POST",
-        body: JSON.stringify({
+    fetch(
+        "https://script.google.com/macros/s/AKfycbwITL3q603h8X8C-8zPSUzOskNxIs0O3AQQUt4YRWW0ZpomZKJBN_VCWm4DWAdNL6SG/exec",
+        {
+            method: "POST",
+            body: JSON.stringify({
 
-            nombre: nombre.value,
-            apellidos: apellidos.value,
-            dni: dni.value,
-            fechaNacimiento: fechaNacimiento.value,
-            telefono: telefono.value,
-            email: email.value,
-            direccion: direccion.value,
+                nombre: nombre.value,
+                apellidos: apellidos.value,
+                dni: dni.value,
+                fechaNacimiento: fechaNacimiento.value,
+                telefono: telefono.value,
+                email: email.value,
+                direccion: direccion.value,
 
-            tallaCalzado: tallaCalzado.value,
-            tallaPantalon: tallaPantalon.value,
-            tallaCamisa: tallaCamisa.value,
+                tallaCalzado: tallaCalzado.value,
+                tallaPantalon: tallaPantalon.value,
+                tallaCamisa: tallaCamisa.value,
 
-            firma: firmaBase64
+                firma: firmaBase64
 
-        })
-    }
-)
+            })
 
+        }
 
-  .then(response => response.text())
+    )
+
+    .then(response => response.text())
 
     .then(resultado => {
 
-        console.log("Respuesta Apps Script:", resultado);
-
-        // Ocultar toda la aplicación
-        document.querySelector(".container").style.display = "none";
+        console.log(resultado);
 
         // Mostrar pantalla final
-        document.getElementById("pantallaFinal").style.display = "block";
+        document.body.innerHTML = `
 
-        // Subir al inicio
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
+            <div style="
+                display:flex;
+                flex-direction:column;
+                justify-content:center;
+                align-items:center;
+                height:100vh;
+                background:#f4f6f8;
+                font-family:Arial,Helvetica,sans-serif;
+                text-align:center;
+                padding:40px;
+            ">
+
+                <img
+                    src="logo.png"
+                    style="width:220px;margin-bottom:40px;"
+                >
+
+                <h1 style="font-size:60px;color:#0B4F8A;margin:0;">
+                    ¡GRACIAS!
+                </h1>
+
+                <h2 style="margin-top:20px;">
+                    Formación completada correctamente
+                </h2>
+
+                <p style="font-size:20px;max-width:700px;">
+
+                    Gracias por completar el proceso de acogida de
+                    <strong>Frimancha Canarias</strong>.
+
+                    <br><br>
+
+                    Bienvenido al equipo.
+
+                </p>
+
+            </div>
+
+        `;
 
     })
 
@@ -428,7 +456,7 @@ btnAceptarFirma.addEventListener("click", function () {
         btnAceptarFirma.disabled = false;
         btnAceptarFirma.textContent = "ACEPTAR FIRMA";
 
-        alert("Se ha producido un error enviando el registro. Inténtelo de nuevo.");
+        alert("Se ha producido un error enviando el registro.");
 
     });
 
