@@ -399,31 +399,27 @@ btnAceptarFirma.addEventListener("click", function () {
         })
     }
 )
-.then(response => response.text())
-.then(resultado => {
-    
-    document.body.innerHTML = `
-        <div style="
-            display:flex;
-            flex-direction:column;
-            justify-content:center;
-            align-items:center;
-            height:100vh;
-            font-family:Arial;
-            text-align:center;
-        ">
-            <img src="logo.png" style="width:220px;margin-bottom:30px;">
 
-            <h1>¡GRACIAS!</h1>
 
-            <h2>Formación completada correctamente.</h2>
+  .then(response => response.text())
 
-            <p>Bienvenido al equipo de Frimancha Canarias.</p>
+    .then(resultado => {
 
-        </div>
-    `;
+        console.log("Respuesta Apps Script:", resultado);
 
-});
+        // Ocultar toda la aplicación
+        document.querySelector(".container").style.display = "none";
+
+        // Mostrar pantalla final
+        document.getElementById("pantallaFinal").style.display = "block";
+
+        // Subir al inicio
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    })
 
     .catch(error => {
 
