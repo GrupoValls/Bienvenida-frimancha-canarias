@@ -439,7 +439,7 @@ btnAceptarFirma.addEventListener("click", function () {
 
                     <br><br>
 
-                    Bienvenido al equipo.
+                    Bienvenido/a al equipo.
 
                 </p>
 
