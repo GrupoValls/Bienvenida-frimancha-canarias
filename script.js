@@ -9,6 +9,7 @@ const fechaNacimiento = document.getElementById("fechaNacimiento");
 const telefono = document.getElementById("telefono");
 const email = document.getElementById("email");
 const direccion = document.getElementById("direccion");
+const centro = document.getElementById("centro");
 
 const tallaCalzado = document.getElementById("tallaCalzado");
 const tallaPantalon = document.getElementById("tallaPantalon");
@@ -82,6 +83,7 @@ function validarFormulario() {
         telefono.value.trim() !== "" &&
         email.value.trim() !== "" &&
         direccion.value.trim() !== "" &&
+        centro.value !== "" &&
         tallaCalzado.value !== "" &&
         tallaPantalon.value !== "" &&
         tallaCamisa.value !== "" &&
@@ -103,6 +105,7 @@ fechaNacimiento.addEventListener("input", validarFormulario);
 telefono.addEventListener("input", validarFormulario);
 email.addEventListener("input", validarFormulario);
 direccion.addEventListener("input", validarFormulario);
+centro.addEventListener("change", validarFormulario);
 
 tallaCalzado.addEventListener("change", validarFormulario);
 tallaPantalon.addEventListener("change", validarFormulario);
@@ -385,6 +388,7 @@ btnAceptarFirma.addEventListener("click", function () {
                 telefono: telefono.value,
                 email: email.value,
                 direccion: direccion.value,
+                centro: centro.value,
 
                 tallaCalzado: tallaCalzado.value,
                 tallaPantalon: tallaPantalon.value,
